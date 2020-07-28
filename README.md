@@ -140,7 +140,7 @@ $ yarn install
 Run each command below in a separate terminal window:
 
 ```
-$ yarn run lint:watch
+$ yarn run offline
 $ yarn run test:watch
 ```
 
