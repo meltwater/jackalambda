@@ -238,7 +238,7 @@ To submit a patch:
 
 ## License
 
-This Serverless project is licensed under the MIT license.
+This Serverless project is Copyright (c) 2019-2020 Meltwater Group.
 
 ## Warranty
 

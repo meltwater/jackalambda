@@ -11,7 +11,7 @@
   "homepage": "https://github.com/meltwater/makenew-serverless-nodejs",
   "bugs": "https://github.com/meltwater/makenew-serverless-nodejs/issues",
   "repository": "meltwater/makenew-serverless-nodejs",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE.txt",
   "author": {
     "name": "Evan Sosenko",
     "email": "evan.sosenko@meltwater.com"
