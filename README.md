@@ -1,8 +1,8 @@
 # Serverless Node.js Project Skeleton
 
-[![npm](https://img.shields.io/npm/v/@makenew/serverless-nodejs.svg)](https://www.npmjs.com/package/@makenew/serverless-nodejs)
-[![Codecov](https://img.shields.io/codecov/c/github/makenew/serverless-nodejs.svg)](https://codecov.io/gh/makenew/serverless-nodejs)
-[![CircleCI](https://img.shields.io/circleci/project/github/makenew/serverless-nodejs.svg)](https://circleci.com/gh/makenew/serverless-nodejs)
+[![npm](https://img.shields.io/npm/v/@meltwater/makenew-serverless-nodejs.svg)](https://www.npmjs.com/package/@meltwater/makenew-serverless-nodejs)
+[![Codecov](https://img.shields.io/codecov/c/github/meltwater/makenew-serverless-nodejs.svg)](https://codecov.io/gh/meltwater/makenew-serverless-nodejs)
+[![CircleCI](https://img.shields.io/circleci/project/github/meltwater/makenew-serverless-nodejs.svg)](https://circleci.com/gh/meltwater/makenew-serverless-nodejs)
 
 Package skeleton for a Node.js Serverless project on AWS Lambda.
 
@@ -54,7 +54,7 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
 1. Create an empty (**non-initialized**) repository on GitHub.
 2. Clone the master branch of this repository with
    ```
-   $ git clone --single-branch git@github.com:makenew/serverless-nodejs.git <new-node-lib>
+   $ git clone --single-branch git@github.com:meltwater/makenew-serverless-nodejs.git <new-node-lib>
    $ cd <new-node-lib>
    ```
    Optionally, reset to the latest version with
@@ -105,7 +105,7 @@ you can fetch and merge in changes from this repository.
 Add this as a new remote with
 
 ```
-$ git remote add upstream git@github.com:makenew/serverless-nodejs.git
+$ git remote add upstream git@github.com:meltwater/makenew-serverless-nodejs.git
 ```
 
 You can then fetch and merge changes with
@@ -121,20 +121,20 @@ Note that `CHANGELOG.md` is just a template for this skeleton.
 The actual changes for this project are documented in the commit history
 and summarized under [Releases].
 
-[Releases]: https://github.com/makenew/serverless-nodejs/releases
+[Releases]: https://github.com/meltwater/makenew-serverless-nodejs/releases
 
 ## Installation
 
 Add this as a dependency to your project using [npm] with
 
 ```
-$ npm install @makenew/serverless-nodejs
+$ npm install @meltwater/makenew-serverless-nodejs
 ```
 
 or using [Yarn] with
 
 ```
-$ yarn add @makenew/serverless-nodejs
+$ yarn add @meltwater/makenew-serverless-nodejs
 ```
 
 [npm]: https://www.npmjs.com/
@@ -145,7 +145,7 @@ $ yarn add @makenew/serverless-nodejs
 ### Quickstart
 
 ```
-$ git clone https://github.com/makenew/serverless-nodejs.git serverless-nodejs
+$ git clone https://github.com/meltwater/makenew-serverless-nodejs.git serverless-nodejs
 $ cd serverless-nodejs
 $ nvm install
 $ yarn install
@@ -172,10 +172,10 @@ The [source code] is hosted on GitHub.
 Clone the project with
 
 ```
-$ git clone git@github.com:makenew/serverless-nodejs.git
+$ git clone git@github.com:meltwater/makenew-serverless-nodejs.git
 ```
 
-[source code]: https://github.com/makenew/serverless-nodejs
+[source code]: https://github.com/meltwater/makenew-serverless-nodejs
 
 ### Requirements
 
@@ -244,7 +244,7 @@ Please submit and comment on bug reports and feature requests.
 
 To submit a patch:
 
-1. Fork it (https://github.com/makenew/serverless-nodejs/fork).
+1. Fork it (https://github.com/meltwater/makenew-serverless-nodejs/fork).
 2. Create your feature branch (`git checkout -b my-new-feature`).
 3. Make changes.
 4. Commit your changes (`git commit -am 'Add some feature'`).

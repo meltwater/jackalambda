@@ -75,8 +75,8 @@ makenew () {
   find_replace "s/Evan Sosenko/${mk_author}/g"
   find_replace "s/razorx@evansosenko\.com/${mk_email}/g"
   find_replace "s|serverless-nodejs|___serverless-nodejs|g"
-  find_replace "s|@makenew/___serverless-nodejs|${mk_slug}|g"
-  find_replace "s|makenew/___serverless-nodejs|${mk_user}/${mk_repo}|g"
+  find_replace "s|@meltwater/___makenew-serverless-nodejs|${mk_slug}|g"
+  find_replace "s|meltwater/___makenew-serverless-nodejs|${mk_user}/${mk_repo}|g"
   find_replace "s|makenew\.razorx\.app|${mk_domain}|g"
   find_replace "s|___serverless-nodejs|${mk_stack}|g"
 
