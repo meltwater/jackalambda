@@ -58,9 +58,6 @@ makenew () {
   read -p '> GitHub repository name (my-repo): ' mk_repo
   read -p '> Serverless stack name (my-stack): ' mk_stack
 
-  circleci="https://circleci.com/gh/${mk_user}/${mk_repo}"
-  read -p "> Follow the CircleCI project at ${circleci} then press enter." mk_null
-
   sed_delete README.md '11,124d'
   sed_insert README.md '11i' 'TODO'
 

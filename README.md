@@ -1,7 +1,6 @@
 # Serverless Node.js Project Skeleton
 
-[![npm](https://img.shields.io/npm/v/@meltwater/makenew-serverless-nodejs.svg)](https://www.npmjs.com/package/@meltwater/makenew-serverless-nodejs)
-[![CircleCI](https://img.shields.io/circleci/project/github/meltwater/makenew-serverless-nodejs.svg)](https://circleci.com/gh/meltwater/makenew-serverless-nodejs)
+[![Drone](https://drone.meltwater.io/api/badges/meltwater/makenew-stencil-app/status.svg?branch=master)](https://drone.meltwater.io/meltwater/makenew-stencil-app)
 
 Package skeleton for a Node.js Serverless project on AWS Lambda.
 
@@ -19,7 +18,7 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
 - [Prettier] code.
 - Futuristic debuggable unit testing with [AVA].
 - Code coverage reporting with [Istanbul], and [nyc].
-- Continuous testing and automated package publishing with [CircleCI].
+- Continuous testing and automated package publishing with [Drone].
 - [Keep a CHANGELOG].
 - Consistent coding with [EditorConfig].
 - Badges from [Shields.io].
@@ -28,8 +27,8 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
 [AWS Lambda]: https://aws.amazon.com/lambda/
 [Serverless]: https://serverless.com/
 [Babel]: https://babeljs.io/
-[CircleCI]: https://circleci.com/
 [EditorConfig]: https://editorconfig.org/
+[Drone]: https://drone.io/
 [Istanbul]: https://istanbul.js.org/
 [JavaScript Standard Style]: https://standardjs.com/
 [Keep a CHANGELOG]: https://keepachangelog.com/
@@ -60,9 +59,9 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
    This will replace the boilerplate, delete itself,
    remove the git remote, remove upstream tags,
    and stage changes for commit.
-4. Create the required CircleCI environment variables with
+4. Create the required Drone secrets with
    ```
-   $ .circleci/envvars.sh
+   $ .drone/secrets.sh
    ```
 5. Review, commit, and push the changes to GitHub with
    ```
@@ -71,7 +70,7 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
    $ git remote add origin git@github.com:<user>/<new-node-lib>.git
    $ git push -u origin master
    ```
-6. Ensure the CircleCI build passes,
+6. Ensure the Drone build passes,
    then publish the initial version of the package with
    ```
    $ nvm install
@@ -191,37 +190,50 @@ $ yarn install
 [npm]: https://www.npmjs.com/
 [nvm]: https://github.com/creationix/nvm
 
+#### Drone
+
+_Drone should already be configured: this section is for reference only._
+
+The following secrets must be set on [Drone].
+These may be set manually or by running the script `./.drone/secrets.sh`.
+
+Note the Drone config path must be set to `.drone/config.yml`
+after the repo is activated.
+
+##### npm
+
+- `npm_token_ro`: npm token for installing packages.
+- `npm_token_rw`: npm token for publishing packages.
+- `npm_team`: npm team to grant read-only package access
+  (format `org:team`, optional).
+
+##### Slack
+
+- `slack_webhook`: Slack webhook for build notifications.
+
+##### Drone Promotion
+
+When the drone build publishes a new package version it can trigger
+a promotion event on a Drone repo.
+
+- `drone_server`: Drone server.
+- `drone_token`: Drone token.
+
+##### AWS S3 Release
+
+- `aws_assume_role_arn_staging`: The AWS role to assume for staging.
+- `aws_assume_role_external_id_staging`: The external ID for the AWS role for staging.
+- `aws_assume_role_arn_production`: The AWS role to assume for production.
+- `aws_assume_role_external_id_production`: The external ID for the AWS role for production.
+
+[Drone]: https://drone.meltwater.io/
+
 ### Publishing
 
 Use the [`npm version`][npm-version] command to release a new version.
-This will push a new git tag which will trigger a CircleCI publish job.
+This will push a new git tag which will trigger a CI publish job.
 
 [npm-version]: https://docs.npmjs.com/cli/version
-
-### Deployment
-
-Deployment is triggered on CircleCI when a git tag matching
-`stage.<environment>` is created or updated.
-Use `yarn run release:<environment>` to do this automatically, e.g.,
-
-```
-$ yarn run release:test
-```
-
-## CircleCI
-
-_CircleCI should already be configured: this section is for reference only._
-
-The following environment variables must be set on [CircleCI]:
-
-- `NPM_TOKEN`: npm token for installing and publishing packages.
-- `AWS_DEFAULT_REGION`: The AWS region Serverless will deploy to.
-- `AWS_ACCESS_KEY_ID`: AWS access key ID.
-- `AWS_SECRET_ACCESS_KEY`: AWS secret access key.
-
-These may be set manually or by running the script `./circleci/envvars.sh`.
-
-[CircleCI]: https://circleci.com/
 
 ## Contributing
 
