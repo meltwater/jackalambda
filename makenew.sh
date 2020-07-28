@@ -58,7 +58,7 @@ makenew () {
   read -p '> GitHub repository name (my-repo): ' mk_repo
   read -p '> Serverless stack name (my-stack): ' mk_stack
 
-  sed_delete README.md '11,124d'
+  sed_delete README.md '11,109d'
   sed_insert README.md '11i' 'TODO'
 
   find_replace "s/\"version\": \".*\"/\"version\": \"0.0.0\"/g"
