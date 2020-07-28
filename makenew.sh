@@ -57,7 +57,6 @@ makenew () {
   read -p '> GitHub user or organization name (my-user): ' mk_user
   read -p '> GitHub repository name (my-repo): ' mk_repo
   read -p '> Serverless stack name (my-stack): ' mk_stack
-  read -p '> Domain name (example.com): ' mk_domain
 
   circleci="https://circleci.com/gh/${mk_user}/${mk_repo}"
   read -p "> Follow the CircleCI project at ${circleci} then press enter." mk_null
@@ -77,7 +76,6 @@ makenew () {
   find_replace "s|serverless-nodejs|___serverless-nodejs|g"
   find_replace "s|@meltwater/___makenew-serverless-nodejs|${mk_slug}|g"
   find_replace "s|meltwater/___makenew-serverless-nodejs|${mk_user}/${mk_repo}|g"
-  find_replace "s|makenew\.razorx\.app|${mk_domain}|g"
   find_replace "s|___serverless-nodejs|${mk_stack}|g"
 
   echo
