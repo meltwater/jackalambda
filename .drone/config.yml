@@ -1,0 +1,179 @@
+---
+kind: pipeline
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+build: &build
+  image: node:erbium
+  pull: default
+  environment:
+    NPM_TOKEN:
+      from_secret: npm_token_ro
+
+event: &event
+  event:
+    - pull_request
+    - push
+    - tag
+    - promote
+
+event_release: &event_release
+  event:
+    - promote
+
+cmd_npm_token: &cmd_npm_token |-
+  echo '//registry.npmjs.org/:_authToken=$${NPM_TOKEN}' > .npmrc
+
+cmd_dependencies: &cmd_dependencies |-
+  apt-get -qq -o=Dpkg::Use-Pty=0 update
+  apt-get -qq -o=Dpkg::Use-Pty=0 install -y bash jq
+
+cache: &cache
+  image: meltwater/drone-cache
+  pull: default
+
+cache-settings: &cache-settings
+  bucket: mw-drone-prod-ew1dro1
+  region: eu-west-1
+  cache_key: node-v1-{{ checksum "yarn.lock" }}
+  mount:
+    - .yarn-cache
+    - node_modules
+
+steps:
+  - name: cache-restore
+    <<: *cache
+    settings:
+      <<: *cache-settings
+      restore: true
+    when:
+      <<: *event
+  - name: install
+    <<: *build
+    commands:
+      - *cmd_npm_token
+      - yarn config set cache-folder $(pwd)/.yarn-cache
+      - yarn install --frozen-lockfile --non-interactive
+    when:
+      <<: *event
+  - name: cache-rebuild
+    <<: *cache
+    settings:
+      <<: *cache-settings
+      rebuild: true
+    when:
+      <<: *event
+  - name: test
+    <<: *build
+    commands:
+      - yarn test
+    when:
+      <<: *event
+  - name: publish
+    <<: *build
+    environment:
+      NPM_TOKEN:
+        from_secret: npm_token_rw
+      NPM_TEAM:
+        from_secret: npm_team
+    commands:
+      - *cmd_npm_token
+      - *cmd_dependencies
+      - yarn run build
+      - .drone/publish.sh
+    when:
+      event:
+        - tag
+  - name: deploy
+    image: meltwaterfoundation/drone-cli
+    pull: default
+    environment:
+      DRONE_SERVER:
+        from_secret: drone_server
+      DRONE_TOKEN:
+        from_secret: drone_token
+    commands:
+      - |
+        if [[ -n "$${DRONE_SERVER}" ]]; then
+          .drone/deploy.sh staging
+        fi
+    when:
+      event:
+        - tag
+  - name: aws session
+    image: meltwaterfoundation/drone-git
+    pull: default
+    commands:
+      - commit_author_email=$(git log --format='%ae' $${DRONE_COMMIT_SHA}^!)
+      - short_git_ref=$(git rev-parse --short $DRONE_COMMIT_SHA)
+      - username=$(echo "$commit_author_email" | sed -E 's/@.+//g')
+      - echo "$DRONE_REPO_NAME,$username,$short_git_ref" > aws_role_session_name
+    when:
+      <<: *event_release
+  - name: aws credentials
+    image: meltwaterfoundation/drone-awscli:1.18.106
+    pull: default
+    environment:
+      AWS_ASSUME_ROLE_ARN_STAGING:
+        from_secret: aws_assume_role_arn_staging
+      AWS_ASSUME_ROLE_EXTERNAL_ID_STAGING:
+        from_secret: aws_assume_role_external_id_staging
+      OUTPUT_BUCKET_PRODUCTION:
+        from_secret: output_bucket_production
+      AWS_ASSUME_ROLE_ARN_PRODUCTION:
+        from_secret: aws_assume_role_arn_production
+      AWS_ASSUME_ROLE_EXTERNAL_ID_PRODUCTION:
+        from_secret: aws_assume_role_external_id_production
+    commands:
+      - |
+        if [ "$${DRONE_DEPLOY_TO}" = 'production' ]; then
+          export AWS_ASSUME_ROLE_ARN="$${AWS_ASSUME_ROLE_ARN_PRODUCTION}"
+          export AWS_ASSUME_ROLE_EXTERNAL_ID="$${AWS_ASSUME_ROLE_EXTERNAL_ID_PRODUCTION}"
+        fi
+      - |
+        if [ "$${DRONE_DEPLOY_TO}" = 'staging' ]; then
+          export AWS_ASSUME_ROLE_ARN="$${AWS_ASSUME_ROLE_ARN_STAGING}"
+          export AWS_ASSUME_ROLE_EXTERNAL_ID="$${AWS_ASSUME_ROLE_EXTERNAL_ID_STAGING}"
+        fi
+      - |
+        aws sts assume-role \
+          --region eu-west-1 \
+          --role-arn "$AWS_ASSUME_ROLE_ARN" \
+          --external-id "$AWS_ASSUME_ROLE_EXTERNAL_ID" \
+          --role-session-name "$(cat aws_role_session_name)" \
+          > aws_credentials
+    when:
+      <<: *event_release
+  - name: serverless
+    <<: *build
+    commands:
+      - |
+        aws_credentials=$(cat aws_credentials)
+        export AWS_ACCESS_KEY_ID=$(echo "$aws_credentials" | jq -r '.Credentials.AccessKeyId')
+        export AWS_SECRET_ACCESS_KEY=$(echo "$aws_credentials" | jq -r '.Credentials.SecretAccessKey')
+        export AWS_SESSION_TOKEN=$(echo "$aws_credentials" | jq -r '.Credentials.SessionToken')
+        export AWS_EXPIRATION=$(echo "$aws_credentials" | jq -r '.Credentials.Expiration')
+      - export SERVERLESS_STAGE="$${DRONE_DEPLOY_TO}"
+      - yarn run deploy
+    when:
+      <<: *event_release
+  - name: slack
+    image: plugins/slack
+    pull: default
+    settings:
+      channel: jackalope-deployment
+      webhook:
+        from_secret: slack_webhook
+      template: |
+        :drone-{{build.status}}: *<{{build.link}}|{{uppercasefirst build.event}} {{build.number}}>* on branch *<https://github.com/{{repo.owner}}/{{repo.name}}/tree/{{build.branch}}|{{build.branch}}>* completed in {{since build.started}}
+
+        :github: <https://github.com/{{repo.owner}}/{{repo.name}}/commit/{{build.commit}}|{{repo.owner}}/{{repo.name}}#{{truncate build.commit 8}}>
+        > {{build.message}} by <https://github.com/{{build.author}}|{{build.author}}>
+    when:
+      <<: *event_release
+      status:
+        - success
+        - failure
