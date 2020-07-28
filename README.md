@@ -1,6 +1,6 @@
 # Serverless Node.js Project Skeleton
 
-[![Drone](https://drone.meltwater.io/api/badges/meltwater/makenew-stencil-app/status.svg?branch=master)](https://drone.meltwater.io/meltwater/makenew-stencil-app)
+[![Drone](https://drone.meltwater.io/api/badges/meltwater/makenew-serverless-nodejs/status.svg?branch=master)](https://drone.meltwater.io/meltwater/makenew-serverless-nodejs)
 
 Package skeleton for a Node.js Serverless project on AWS Lambda.
 

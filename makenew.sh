@@ -67,10 +67,10 @@ makenew () {
   find_replace "s/Package skeleton for a Node.js Serverless project on AWS Lambda\./${mk_description}/g"
   find_replace "s/Evan Sosenko/${mk_author}/g"
   find_replace "s/razorx@evansosenko\.com/${mk_email}/g"
-  find_replace "s|serverless-nodejs|___serverless-nodejs|g"
+  find_replace "s|makenew-serverless-nodejs|___makenew-serverless-nodejs|g"
   find_replace "s|@meltwater/___makenew-serverless-nodejs|${mk_slug}|g"
   find_replace "s|meltwater/___makenew-serverless-nodejs|${mk_user}/${mk_repo}|g"
-  find_replace "s|___serverless-nodejs|${mk_stack}|g"
+  find_replace "s|___makenew-serverless-nodejs|${mk_stack}|g"
 
   echo
   echo 'Replacing boilerplate.'

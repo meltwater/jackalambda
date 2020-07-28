@@ -1,5 +1,5 @@
 ---
-service: serverless-nodejs
+service: makenew-serverless-nodejs
 
 frameworkVersion: "^1.58.0"
 
