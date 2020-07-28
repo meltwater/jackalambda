@@ -15,9 +15,8 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
 - Fast, reliable, and secure dependency management with [Yarn].
 - Next generation JavaScript with [Babel].
 - Examples with configurable options and arguments powered by [examplr].
-- Linting with the [JavaScript Standard Style] and [JSON Lint].
+- Linting with the [JavaScript Standard Style].
 - [Prettier] code.
-- Automatically lint on changes with [gulp].
 - Futuristic debuggable unit testing with [AVA].
 - Code coverage reporting with [Istanbul], and [nyc].
 - Continuous testing and automated package publishing with [CircleCI].
@@ -32,14 +31,12 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
 [CircleCI]: https://circleci.com/
 [EditorConfig]: https://editorconfig.org/
 [Istanbul]: https://istanbul.js.org/
-[JSON Lint]: https://github.com/zaach/jsonlint
 [JavaScript Standard Style]: https://standardjs.com/
 [Keep a CHANGELOG]: https://keepachangelog.com/
 [Node.js]: https://nodejs.org/
 [Prettier]: https://prettier.io/
 [Shields.io]: https://shields.io/
 [examplr]: https://github.com/meltwater/node-examplr
-[gulp]: https://gulpjs.com/
 [npm]: https://www.npmjs.com/
 [nyc]: https://github.com/istanbuljs/nyc
 [Yarn]: https://yarnpkg.com/
