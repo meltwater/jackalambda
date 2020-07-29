@@ -22,7 +22,6 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
 - Continuous testing and automated package publishing with [Drone].
 - [Keep a CHANGELOG].
 - Consistent coding with [EditorConfig].
-- Badges from [Shields.io].
 
 [AVA]: https://github.com/avajs/ava
 [AWS Lambda]: https://aws.amazon.com/lambda/
@@ -35,7 +34,6 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
 [Keep a CHANGELOG]: https://keepachangelog.com/
 [Node.js]: https://nodejs.org/
 [Prettier]: https://prettier.io/
-[Shields.io]: https://shields.io/
 [examplr]: https://github.com/meltwater/node-examplr
 [npm]: https://www.npmjs.com/
 [nyc]: https://github.com/istanbuljs/nyc
