@@ -84,12 +84,12 @@
     "aws-sdk": "2.631.0"
   },
   "dependencies": {
-    "aws-sdk": "2.631.0",
     "esm": "^3.2.25"
   },
   "devDependencies": {
     "@meltwater/examplr": "^4.2.0",
     "ava": "^3.3.0",
+    "aws-sdk": "2.631.0",
     "del-cli": "^3.0.0",
     "nodemon": "^2.0.1",
     "npm-run-all": "^4.1.2",

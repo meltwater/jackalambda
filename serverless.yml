@@ -17,6 +17,22 @@ provider:
 
 package:
   individually: true
+  exclude:
+    - .drone/**
+    - .editorconfig
+    - .npmrc
+    - .nvmrc
+    - .nyc_output/**
+    - CHANGELOG.md
+    - README.md
+    - aws_credentials
+    - aws_role_session_name
+    - coverage/**
+    - examples/**
+    - makenew.sh
+    - serverless.yml
+    - yarn.lock
+    - node_modules/.bin/**
 
 functions:
   todo:
