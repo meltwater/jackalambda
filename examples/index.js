@@ -1,23 +1,4 @@
-import path from 'path'
-
-import createExamples from '@meltwater/examplr'
-
-import todo from './todo'
-
-const examples = {
-  todo
-}
-
-const envVars = ['LOG_LEVEL', 'LOG_FILTER', 'LOG_OUTPUT_MODE']
-
-const defaultOptions = {}
-
-const { runExample } = createExamples({
-  examples,
-  envVars,
-  defaultOptions
+require = require('esm')(module, { // eslint-disable-line no-global-assign
+  mode: 'auto'
 })
-
-runExample({
-  local: path.resolve('examples', 'local.json')
-})
+module.exports = require('./main')

@@ -47,30 +47,15 @@
     "deploy": "serverless deploy --aws-s3-accelerate",
     "release:staging": ".drone/deploy.sh staging",
     "release:production": ".drone/deploy.sh production",
-    "example": "babel-node examples",
-    "example:watch": "nodemon --exec babel-node examples",
-    "example:inspect": "babel-node --inspect examples",
-    "example:inspect:watch": "nodemon --exec babel-node --inspect examples",
+    "example": "node examples",
+    "example:watch": "nodemon --exec node examples",
+    "example:inspect": "node --inspect examples",
+    "example:inspect:watch": "nodemon --exec node --inspect examples",
     "offline": "serverless offline",
     "pretty": "prettier --ignore-path .gitignore --write '**/*.(js|json|graphql)'",
     "format": "npm-run-all --serial pretty format:*",
     "format:js": "standard --fix",
     "report": "nyc report"
-  },
-  "babel": {
-    "plugins": [
-      "source-map-support"
-    ],
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ]
   },
   "ava": {
     "files": [
@@ -79,7 +64,7 @@
       "!package/**/*"
     ],
     "require": [
-      "@babel/register"
+      "esm"
     ]
   },
   "nyc": {
@@ -111,18 +96,12 @@
   },
   "dependencies": {
     "aws-sdk": "2.631.0",
+    "esm": "^3.2.25",
     "source-map-support": "^0.5.9"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.1",
-    "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/register": "^7.0.0",
     "@meltwater/examplr": "^4.2.0",
     "ava": "^3.3.0",
-    "babel-loader": "^8.0.4",
-    "babel-plugin-source-map-support": "^2.0.1",
     "del-cli": "^3.0.0",
     "nodemon": "^2.0.1",
     "npm-run-all": "^4.1.2",
@@ -130,9 +109,6 @@
     "prettier": "^2.0.2",
     "serverless": "^1.58.0",
     "serverless-offline": "^6.1.2",
-    "serverless-webpack": "^5.2.0",
-    "standard": "^14.3.1",
-    "webpack": "^4.20.2",
-    "webpack-node-externals": "^2.5.0"
+    "standard": "^14.3.1"
   }
 }

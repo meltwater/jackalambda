@@ -16,13 +16,6 @@ provider:
   environment:
     NODE_ENV: production
 
-custom:
-  webpack:
-    packager: yarn
-    includeModules:
-      forceExclude:
-        - aws-sdk
-
 package:
   individually: true
 
