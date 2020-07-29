@@ -13,6 +13,7 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
 - [Node.js]'s [npm] package structure.
 - Fast, reliable, and secure dependency management with [Yarn].
 - Next generation JavaScript with [Babel].
+- The brilliantly simple, babel-less, bundle-less ECMAScript module loader [esm].
 - Examples with configurable options and arguments powered by [examplr].
 - Linting with the [JavaScript Standard Style].
 - [Prettier] code.
@@ -26,8 +27,8 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
 [AVA]: https://github.com/avajs/ava
 [AWS Lambda]: https://aws.amazon.com/lambda/
 [Serverless]: https://serverless.com/
-[Babel]: https://babeljs.io/
 [EditorConfig]: https://editorconfig.org/
+[esm]: https://www.npmjs.com/package/esm
 [Drone]: https://drone.io/
 [Istanbul]: https://istanbul.js.org/
 [JavaScript Standard Style]: https://standardjs.com/
