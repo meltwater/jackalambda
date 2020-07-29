@@ -1,4 +1,3 @@
-require = require('esm')(module, { // eslint-disable-line no-global-assign
-  mode: 'auto'
-})
+/* eslint-disable no-global-assign */
+require = require('esm')(module, { mode: 'auto' })
 module.exports = require('./main')

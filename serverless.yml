@@ -20,7 +20,7 @@ package:
 
 functions:
   todo:
-    handler: handlers/todo.default
+    handler: handlers/index.todo
     events:
       - http:
           method: get
