@@ -23,6 +23,7 @@ package:
     - .npmrc
     - .nvmrc
     - .nyc_output/**
+    - .yarn-cache/**
     - CHANGELOG.md
     - README.md
     - aws_credentials
@@ -30,9 +31,9 @@ package:
     - coverage/**
     - examples/**
     - makenew.sh
+    - node_modules/.bin/**
     - serverless.yml
     - yarn.lock
-    - node_modules/.bin/**
 
 functions:
   todo:
