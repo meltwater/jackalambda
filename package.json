@@ -96,8 +96,7 @@
   },
   "dependencies": {
     "aws-sdk": "2.631.0",
-    "esm": "^3.2.25",
-    "source-map-support": "^0.5.9"
+    "esm": "^3.2.25"
   },
   "devDependencies": {
     "@meltwater/examplr": "^4.2.0",
