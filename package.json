@@ -1,6 +1,6 @@
 {
   "name": "@meltwater/makenew-serverless-nodejs",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Package skeleton for a Node.js Serverless project on AWS Lambda.",
   "main": "index.js",
   "module": "lib/index.js",
