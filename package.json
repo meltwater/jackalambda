@@ -32,7 +32,7 @@
     "test:watch": "ava --watch",
     "test:inspect": "node --inspect node_modules/ava/profile",
     "test:inspect:watch": "nodemon --inspect node_modules/ava/profile",
-    "lint": "standard",
+    "lint": "eslint --ignore-path .gitignore --ext .js .",
     "preversion": "npm-run-all test",
     "postversion": "git push && git push --tags",
     "deploy": "serverless deploy --aws-s3-accelerate",
@@ -45,7 +45,7 @@
     "offline": "serverless offline",
     "pretty": "prettier --ignore-path .gitignore --write '**/*.(js|json|graphql)'",
     "format": "npm-run-all --serial pretty format:*",
-    "format:js": "standard --fix",
+    "format:ts": "eslint --ignore-path .gitignore --fix --ext .js .",
     "report": "nyc report"
   },
   "ava": {
@@ -102,7 +102,6 @@
     "nyc": "^15.0.0",
     "prettier": "^2.0.2",
     "serverless": "^1.58.0",
-    "serverless-offline": "^6.1.2",
-    "standard": "^14.3.1"
+    "serverless-offline": "^6.1.2"
   }
 }
