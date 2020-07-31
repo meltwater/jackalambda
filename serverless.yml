@@ -24,6 +24,8 @@ package:
     - .nvmrc
     - .nyc_output/**
     - .yarn-cache/**
+    - .eslintrc.json
+    - .prettierrc.json
     - CHANGELOG.md
     - README.md
     - aws_credentials
