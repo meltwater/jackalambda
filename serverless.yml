@@ -26,6 +26,7 @@ package:
     - .yarn-cache/**
     - .eslintrc.json
     - .prettierrc.json
+    - tmp/**
     - CHANGELOG.md
     - README.md
     - aws_credentials
