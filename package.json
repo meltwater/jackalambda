@@ -48,35 +48,6 @@
     "format:ts": "eslint --ignore-path .gitignore --fix --ext .js .",
     "report": "nyc report"
   },
-  "ava": {
-    "files": [
-      "**/*.spec.js",
-      "!package/**/*"
-    ],
-    "require": [
-      "esm"
-    ]
-  },
-  "nyc": {
-    "exclude": [
-      "**/index.js",
-      "package/**/*.js",
-      "examples/**/*.js",
-      "**/*.spec.js"
-    ],
-    "reporter": [
-      "html",
-      "lcov",
-      "text"
-    ]
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "**/*.spec.js",
-      "test/",
-      "tmp/"
-    ]
-  },
   "engines": {
     "node": ">=12.13.0"
   },

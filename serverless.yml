@@ -20,22 +20,25 @@ package:
   exclude:
     - .drone/**
     - .editorconfig
+    - .eslintrc.json
     - .npmrc
     - .nvmrc
     - .nyc_output/**
-    - .yarn-cache/**
-    - .eslintrc.json
+    - .nycrc.json
     - .prettierrc.json
-    - tmp/**
+    - .yarn-cache/**
     - CHANGELOG.md
     - README.md
+    - ava.config.js
     - aws_credentials
     - aws_role_session_name
     - coverage/**
     - examples/**
     - makenew.sh
     - node_modules/.bin/**
+    - nodemon.json
     - serverless.yml
+    - tmp/**
     - yarn.lock
 
 functions:
