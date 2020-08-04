@@ -34,6 +34,7 @@ package:
     - aws_role_session_name
     - coverage/**
     - examples/**
+    - fixtures/**
     - makenew.sh
     - node_modules/.bin/**
     - nodemon.json
