@@ -27,6 +27,7 @@ package:
     - .nycrc.json
     - .prettierrc.json
     - .yarn-cache/**
+    - .yarnrc
     - CHANGELOG.md
     - README.md
     - ava.config.js
