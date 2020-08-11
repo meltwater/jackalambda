@@ -39,6 +39,7 @@ package:
     - node_modules/.bin/**
     - nodemon.json
     - serverless.yml
+    - snapshots/**
     - tmp/**
     - yarn.lock
 
