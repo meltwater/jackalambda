@@ -135,7 +135,7 @@ main () {
 
   echo 'Checking Drone server'
   drone info
-  
+
   echo 'Synchronizing repos in drone. (This may take a while)'
   drone repo sync
 
