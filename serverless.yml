@@ -51,3 +51,7 @@ functions:
       - http:
           method: get
           path: /todo
+  head:
+    handler: handlers/head/handle.handle
+  tail:
+    handler: handlers/tail/handle.handle
