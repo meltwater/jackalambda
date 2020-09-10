@@ -6,10 +6,7 @@ Mythical lambda creature
 
 ## Description
 
-Bootstrap a new Node.js Serverless project in five minutes or less.
-
-TODO
-[Releases]: https://github.com/meltwater/jackalambda/releases
+Toolkit for writing production ready Lambda functions.
 
 ## Installation
 
