@@ -1,19 +1,19 @@
 {
-  "name": "@meltwater/makenew-serverless-nodejs",
-  "version": "0.3.2",
-  "description": "Package skeleton for a Node.js Serverless project on AWS Lambda.",
+  "name": "@meltwater/jackalambda",
+  "version": "0.0.0",
+  "description": "Mythical lambda creature",
   "main": "index.js",
   "module": "lib/index.js",
   "sideEffects": false,
   "keywords": [
     "node"
   ],
-  "homepage": "https://github.com/meltwater/makenew-serverless-nodejs",
-  "bugs": "https://github.com/meltwater/makenew-serverless-nodejs/issues",
-  "repository": "meltwater/makenew-serverless-nodejs",
+  "homepage": "https://github.com/meltwater/jackalambda",
+  "bugs": "https://github.com/meltwater/jackalambda/issues",
+  "repository": "meltwater/jackalambda",
   "license": "SEE LICENSE IN LICENSE.txt",
   "author": {
-    "name": "Evan Sosenko",
+    "name": "Team Jackalope",
     "email": "evan.sosenko@meltwater.com"
   },
   "files": [
