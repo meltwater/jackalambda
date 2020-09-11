@@ -515,6 +515,21 @@
   resolved "https://registry.yarnpkg.com/@istanbuljs/schema/-/schema-0.1.2.tgz#26520bf09abe4a5644cd5414e37125a8954241dd"
   integrity sha512-tsAQNx32a8CoFhjhijUIhI4kccIAgmGhy8LZMZgGfmXcpMbPRUqn5LWmgRttILi6yeGmBJd2xsPkFMs0PzgPCw==
 
+"@meltwater/aws-configuration-fetcher@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@meltwater/aws-configuration-fetcher/-/aws-configuration-fetcher-0.1.2.tgz#232f1b5b5c19232c44ac170dd523dcdfce9909b8"
+  integrity sha512-fiTEHDgkGzQ+kft8itBomtTILJXpq0NayyEdMlEZOTDq57lQ24vXEF4q1v0WH9V8+J7uiTo8U5b+tTjyCnZzkg==
+  dependencies:
+    argument-contracts "^1.1.0"
+    aws-xray-sdk-core "^3.2.0"
+    cache-manager "^3.4.0"
+    esm "^3.2.25"
+
+"@meltwater/coerce@0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@meltwater/coerce/-/coerce-0.2.1.tgz#f8b4cadcc0b46ac0438353d7dea3c2ae656a4f08"
+  integrity sha512-xgrpY57yvRhlrpnUzNLJOQWQmXiY9rYoVKp6I8BJ77+LGHanp+Ck370xgLbRMA8qoMC253Tnu2sEANyv9rEp6Q==
+
 "@meltwater/examplr@^4.2.0", "@meltwater/examplr@^4.3.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@meltwater/examplr/-/examplr-4.4.0.tgz#ee84910c9a8bb3bd3da08ac9488a79488231162b"
@@ -1274,6 +1289,13 @@ args@^5.0.1:
     leven "2.1.0"
     mri "1.1.4"
 
+argument-contracts@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/argument-contracts/-/argument-contracts-1.1.0.tgz#97065f097b1aa2f2f072a346f32a2604bac675a1"
+  integrity sha512-81kIA+QKzOtUMJAhueMOH89OUGJtXOfSBQDecx2ZZXUb+r0Qk7xfJ2Fq13JD2ToLbSCaJmwHOeHCh5AEg7m6BA==
+  dependencies:
+    "@meltwater/coerce" "0.2.1"
+
 arr-diff@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/arr-diff/-/arr-diff-4.0.0.tgz#d6461074febfec71e7e15235761a329a5dc7c520"
@@ -1505,7 +1527,7 @@ aws-sign2@~0.7.0:
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
   integrity sha1-tG6JCTSpWR8tL2+G1+ap8bP+dqg=
 
-aws-xray-sdk-core@3.2.0:
+aws-xray-sdk-core@3.2.0, aws-xray-sdk-core@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/aws-xray-sdk-core/-/aws-xray-sdk-core-3.2.0.tgz#45421ec5f11824e4fcac9cdc868eb2421af9df45"
   integrity sha512-6mhqmRsQbDAISyKQuYguO38AhHgGSZsmYLVUYWUV9eJ+GiHZf08apwM7fSdiRw56qCulgSTV5JG2/cnPmtBhUA==
@@ -1781,6 +1803,15 @@ cache-base@^1.0.1:
     to-object-path "^0.3.0"
     union-value "^1.0.0"
     unset-value "^1.0.0"
+
+cache-manager@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/cache-manager/-/cache-manager-3.4.0.tgz#6f352fa1ee95709878e3474e9ed8489ef751bba3"
+  integrity sha512-+WtL5sKHGngtnzTHNFA6+gC0wjpAAUmwmprXOSeaCBOkohM8Nh7GvV8fC90NFrDh7m3i87AshGd39/yYbWNtWA==
+  dependencies:
+    async "^3.2.0"
+    lodash "^4.17.20"
+    lru-cache "6.0.0"
 
 cacheable-request@^2.1.1:
   version "2.1.4"
@@ -5021,6 +5052,13 @@ lowercase-keys@^2.0.0:
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-2.0.0.tgz#2603e78b7b4b0006cbca2fbcc8a3202558ac9479"
   integrity sha512-tqNXrS78oMOE73NMxK4EMLQsQowWf8jKooH9g7xPavRT706R6bkQJ6DY2Te7QukaZsulxa30wQ7bk0pm4XiHmA==
 
+lru-cache@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-6.0.0.tgz#6d6fe6570ebd96aaf90fcad1dafa3b2566db3a94"
+  integrity sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
+  dependencies:
+    yallist "^4.0.0"
+
 lru-cache@^4.0.1:
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.5.tgz#8bbe50ea85bed59bc9e33dcab8235ee9bcf443cd"
@@ -7957,6 +7995,11 @@ yallist@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
   integrity sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
+
+yallist@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
+  integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
 yaml-ast-parser@0.0.43:
   version "0.0.43"
