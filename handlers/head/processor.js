@@ -1,6 +1,7 @@
 import { createJsonHandler } from '../../lib'
 
 import { createFactories } from '../factories'
+import { configurationRequests } from './config'
 
 const createProcessor = (factories, { log }) => async (event, context) => {
   const tailLambdaClient = factories.getTailLambdaClient()
@@ -8,4 +9,8 @@ const createProcessor = (factories, { log }) => async (event, context) => {
   return event
 }
 
-export const handle = createJsonHandler([], createFactories, createProcessor)
+export const handle = createJsonHandler(
+  configurationRequests,
+  createFactories,
+  createProcessor
+)

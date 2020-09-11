@@ -8,6 +8,7 @@ export class Factories {
 
   getTailLambdaClient() {
     const { tailLambdaArn } = this.config
+    if (!tailLambdaArn) throw new Error('Missing tailLambdaArn')
     return new LambdaClient({
       arn: tailLambdaArn,
       ...this._ctx
