@@ -8,8 +8,8 @@ const createProcessor = (factories, { log }) => async (event, context) => {
   return tailLambdaClient.invokeJson(event)
 }
 
-export const handleInvoke = createJsonHandler(
+export const handleInvoke = createJsonHandler({
   configurationRequests,
   createFactories,
   createProcessor
-)
+})
