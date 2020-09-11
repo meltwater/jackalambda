@@ -5,8 +5,7 @@ import { configurationRequests } from './config'
 
 const createProcessor = (factories, { log }) => async (event, context) => {
   const tailLambdaClient = factories.getTailLambdaClient()
-  log.info({ tailLambdaClient }, 'handled')
-  return event
+  return tailLambdaClient.invokeJson(event)
 }
 
 export const handle = createJsonHandler(
