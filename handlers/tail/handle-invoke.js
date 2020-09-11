@@ -1,3 +1,3 @@
 /* eslint-disable no-global-assign */
 require = require('esm')(module, { mode: 'auto' })
-module.exports.handler = require('./processor').handle
+module.exports.handler = require('./processor').handleInvoke

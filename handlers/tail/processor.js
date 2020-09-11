@@ -7,4 +7,4 @@ const createProcessor = (factories, { log }) => async (event, context) => {
   return event
 }
 
-export const handle = createJsonHandler([], createFactories, createProcessor)
+export const handleInvoke = createJsonHandler([], createFactories, createProcessor)

@@ -1,7 +1,7 @@
 ---
 head:
-  handler: handlers/head/handle.invoke.handler
+  handler: handlers/head/handle-invoke.handler
   environment:
     SSM_TAIL_LAMBDA_ARN: ${self:custom.ssmPrefix}/tail_lambda_arn
 tail:
-  handler: handlers/tail/handle.invoke.handler
+  handler: handlers/tail/handle-invoke.handler
