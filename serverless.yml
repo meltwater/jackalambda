@@ -52,6 +52,6 @@ functions:
           method: get
           path: /todo
   head:
-    handler: handlers/head/handle.handle
+    handler: handlers/head/handle.invoke.handler
   tail:
-    handler: handlers/tail/handle.handle
+    handler: handlers/tail/handle.invoke.handler
