@@ -1,0 +1,7 @@
+---
+TailLambdaSsmParameter:
+  Type: AWS::SSM::Parameter
+  Properties:
+    Name: ${self:custom.ssmPrefix}/tail_lambda_arn
+    Type: String
+    Value: { Ref: 'TailLambdaFunction' }

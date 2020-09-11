@@ -1,0 +1,13 @@
+---
+todo:
+  handler: handlers/index.todo
+  events:
+    - http:
+        method: get
+        path: /todo
+head:
+  handler: handlers/head/handle.invoke.handler
+  environment:
+    SSM_TAIL_LAMBDA_ARN: ${self:custom.ssmPrefix}/tail_lambda_arn
+tail:
+  handler: handlers/tail/handle.invoke.handler
