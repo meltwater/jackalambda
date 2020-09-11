@@ -1,3 +1,5 @@
+import ac from 'argument-contracts'
+
 import { LambdaClient } from '../lib'
 
 export class Factories {
@@ -8,7 +10,7 @@ export class Factories {
 
   getTailLambdaClient() {
     const { tailLambdaArn } = this.config
-    if (!tailLambdaArn) throw new Error('Missing tailLambdaArn')
+    ac.assertNotNil(tailLambdaArn, 'tailLambdaArn')
     return new LambdaClient({
       arn: tailLambdaArn,
       ...this._ctx

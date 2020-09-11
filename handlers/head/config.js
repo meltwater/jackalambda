@@ -4,10 +4,11 @@ import {
   ConfigurationRequestTypes
 } from '@meltwater/aws-configuration-fetcher'
 
+// UPSTREAM: Want this function.
 const createStringConfigurationRequest = (propertyName, key) =>
   new ConfigurationRequest({
     adapter: (value) => {
-      ac.assertString(value, propertyName)
+      ac.assertNonWhiteSpaceString(value, propertyName)
       return value
     },
     key,
