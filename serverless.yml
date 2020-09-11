@@ -15,6 +15,12 @@ provider:
   environment:
     NODE_ENV: production
 
+custom:
+  app: jackalope
+  name: jackalambda
+  owner: meltwater
+  ssmPrefix: /${self:custom.owner}/${self:custom.app}/${self:provider.stage}/${self:custom.name}
+
 package:
   individually: true
   exclude:
@@ -55,3 +61,12 @@ functions:
     handler: handlers/head/handle.invoke.handler
   tail:
     handler: handlers/tail/handle.invoke.handler
+
+resources:
+  Resources:
+    TailLambdaSsmParameter:
+      Type: AWS::SSM::Parameter
+      Properties:
+        Name: ${self:custom.ssmPrefix}/tail_lambda_arn
+        Type: String
+        Value: { Ref: 'TailLambdaFunction' }
