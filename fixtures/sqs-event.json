@@ -1,0 +1,13 @@
+{
+  "Records": [
+    {
+      "body": "{\"test\":\"data\",\"canBe\":\"so much fun\"}",
+      "messageAttributes": {
+        "reqId": {
+          "DataType": "String",
+          "StringValue": "A completely valid requestId"
+        }
+      }
+    }
+  ]
+}
