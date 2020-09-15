@@ -51,5 +51,5 @@ test('should not provide body if method is GET', async (t) => {
   const result = parseHttpEvent(getEvent)
 
   t.snapshot(result, 'GET Event')
-  t.is(result.body, undefined)
+  t.is(result.body, null)
 })
