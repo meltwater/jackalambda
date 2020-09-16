@@ -1,0 +1,13 @@
+{
+  "Records": [
+    {
+      "body": "{\"test\":\"data\",\"canBe\":\"so much fun\"}",
+      "messageAttributes": {
+        "reqId": {
+          "DataType": "String",
+          "StringValue": "22046ee0-2bc0-4f8b-a32b-209d9fb256fe"
+        }
+      }
+    }
+  ]
+}
