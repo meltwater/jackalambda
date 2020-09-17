@@ -12,7 +12,7 @@ provider:
   region: ${env:AWS_DEFAULT_REGION, 'eu-west-1'}
   stage: ${opt:stage, env:SERVERLESS_STAGE, 'staging'}
   logRetentionInDays: 30
-  environment: ${file(./serverless/exclude.yml)}
+  environment: ${file(./serverless/environment.yml)}
 
 package:
   individually: true
