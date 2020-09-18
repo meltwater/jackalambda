@@ -2,7 +2,6 @@ import test from 'ava'
 
 import { getJsonFixture } from '../fixtures'
 import { parseHttpEvent } from '../lib/aws'
-import { HttpEvent } from '../lib/aws/http-event'
 
 test('should successfully parse POST http event', async (t) => {
   const event = await getJsonFixture('http-event.json')
@@ -10,7 +9,6 @@ test('should successfully parse POST http event', async (t) => {
   const result = parseHttpEvent(event)
 
   t.snapshot(result, 'POST Event')
-  t.true(result instanceof HttpEvent)
 })
 
 test('should successfully parse when there are no path parameters', async (t) => {
