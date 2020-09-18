@@ -37,25 +37,6 @@ test('should successfully parse when there are no query string parameters', asyn
   t.snapshot(result, 'No query string parameters Event')
 })
 
-test('should successfully parse when there is no request in the headers', async (t) => {
-  const event = await getJsonFixture('http-event.json')
-
-  const updatedEvent = {
-    ...event,
-    headers: {
-      ...event.headers,
-      'x-request-id': undefined
-    }
-  }
-
-  const result = parseHttpEvent(updatedEvent)
-
-  const { reqId, ...noReqIdResult } = result
-
-  t.snapshot(noReqIdResult, 'No request Event')
-  t.is(typeof reqId, 'string')
-})
-
 test('should successfully parse PUT http event', async (t) => {
   const event = await getJsonFixture('http-event.json')
 
