@@ -9,7 +9,32 @@ test('should successfully parse POST http event', async (t) => {
   const result = parseHttpEvent(event)
 
   t.snapshot(result, 'POST Event')
-  t.is(typeof result.body, 'object')
+})
+
+test('should successfully parse when there are no path parameters', async (t) => {
+  const event = await getJsonFixture('http-event.json')
+
+  const updatedEvent = {
+    ...event,
+    pathParameters: null
+  }
+
+  const result = parseHttpEvent(updatedEvent)
+
+  t.snapshot(result, 'No path parameters Event')
+})
+
+test('should successfully parse when there are no query string parameters', async (t) => {
+  const event = await getJsonFixture('http-event.json')
+
+  const updatedEvent = {
+    ...event,
+    multiValueQueryStringParameters: null
+  }
+
+  const result = parseHttpEvent(updatedEvent)
+
+  t.snapshot(result, 'No query string parameters Event')
 })
 
 test('should successfully parse PUT http event', async (t) => {
@@ -23,7 +48,6 @@ test('should successfully parse PUT http event', async (t) => {
   const result = parseHttpEvent(putEvent)
 
   t.snapshot(result, 'PUT Event')
-  t.is(typeof result.body, 'object')
 })
 
 test('should successfully parse PATCH http event', async (t) => {
@@ -37,10 +61,9 @@ test('should successfully parse PATCH http event', async (t) => {
   const result = parseHttpEvent(patchEvent)
 
   t.snapshot(result, 'PATCH Event')
-  t.is(typeof result.body, 'object')
 })
 
-test('should not provide body if method is GET', async (t) => {
+test('should provide empty object body if method is GET', async (t) => {
   const event = await getJsonFixture('http-event.json')
 
   const getEvent = {
@@ -50,6 +73,5 @@ test('should not provide body if method is GET', async (t) => {
 
   const result = parseHttpEvent(getEvent)
 
-  t.snapshot(result, 'GET Event')
-  t.is(result.body, null)
+  t.snapshot(result, 'GET Event with empty object body')
 })
