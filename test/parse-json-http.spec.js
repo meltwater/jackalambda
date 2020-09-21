@@ -1,12 +1,12 @@
 import test from 'ava'
 
 import { getJsonFixture } from '../fixtures'
-import { parseHttpEvent } from '../lib/aws'
+import { parseJsonHttpEvent } from '../lib/parser'
 
 test('should successfully parse POST http event', async (t) => {
   const event = await getJsonFixture('http-event.json')
 
-  const result = parseHttpEvent(event)
+  const result = parseJsonHttpEvent(event)
 
   t.snapshot(result, 'POST Event')
 })
@@ -19,7 +19,7 @@ test('should successfully parse when there are no path parameters', async (t) =>
     pathParameters: null
   }
 
-  const result = parseHttpEvent(updatedEvent)
+  const result = parseJsonHttpEvent(updatedEvent)
 
   t.snapshot(result, 'No path parameters Event')
 })
@@ -32,7 +32,7 @@ test('should successfully parse when there are no query string parameters', asyn
     multiValueQueryStringParameters: null
   }
 
-  const result = parseHttpEvent(updatedEvent)
+  const result = parseJsonHttpEvent(updatedEvent)
 
   t.snapshot(result, 'No query string parameters Event')
 })
@@ -45,7 +45,7 @@ test('should successfully parse PUT http event', async (t) => {
     httpMethod: 'PUT'
   }
 
-  const result = parseHttpEvent(putEvent)
+  const result = parseJsonHttpEvent(putEvent)
 
   t.snapshot(result, 'PUT Event')
 })
@@ -58,7 +58,7 @@ test('should successfully parse PATCH http event', async (t) => {
     httpMethod: 'PATCH'
   }
 
-  const result = parseHttpEvent(patchEvent)
+  const result = parseJsonHttpEvent(patchEvent)
 
   t.snapshot(result, 'PATCH Event')
 })
@@ -71,7 +71,7 @@ test('should provide empty object body if method is GET', async (t) => {
     httpMethod: 'GET'
   }
 
-  const result = parseHttpEvent(getEvent)
+  const result = parseJsonHttpEvent(getEvent)
 
   t.snapshot(result, 'GET Event with empty object body')
 })
