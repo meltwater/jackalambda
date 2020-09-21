@@ -5,6 +5,7 @@ import { createPreCtx } from '../lib/ctx/pre-ctx'
 
 beforeEach((t) => {
   t.context = {
+    functionName: 'my-func',
     awsRequestId: 'e609e19a-6303-4090-8404-ba28cd4f1468'
   }
 })
