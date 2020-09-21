@@ -1,7 +1,7 @@
 import test from 'ava'
 
 import { getJsonFixture } from '../fixtures'
-import { parseJsonMonoSqsEvent } from '../lib/aws'
+import { parseJsonMonoSqsEvent } from '../lib/parser'
 
 test('should parse well known sqs event', async (t) => {
   const sqsMessageEvent = await getJsonFixture('sqs-event.json')

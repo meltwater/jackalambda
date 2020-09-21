@@ -1,7 +1,7 @@
 import test from 'ava'
 
 import { getJsonFixture } from '../fixtures'
-import { parseJsonHttpEvent } from '../lib/aws'
+import { parseJsonHttpEvent } from '../lib/parser'
 
 test('should successfully parse POST http event', async (t) => {
   const event = await getJsonFixture('http-event.json')
