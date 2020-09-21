@@ -17,11 +17,5 @@ test('should work for sqs event', async (t) => {
   const { lambdaContext } = t.context
   const sqsMessageEvent = await getJsonFixture('sqs-event.json')
 
-  t.snapshot(
-    createContext({
-      event: sqsMessageEvent,
-      lambdaContext
-    }),
-    'parsed sqs event'
-  )
+  t.snapshot(createContext(sqsMessageEvent, lambdaContext), 'parsed sqs event')
 })
