@@ -1,7 +1,7 @@
 import test, { beforeEach } from 'ava'
 
 import { getJsonFixture } from '../fixtures'
-import { createContext } from '../lib/aws'
+import { createContext } from '../lib/ctx'
 
 beforeEach((t) => {
   const lambdaContext = {

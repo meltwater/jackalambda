@@ -1,7 +1,7 @@
 import test, { beforeEach } from 'ava'
 
 import { getJsonFixture } from '../fixtures'
-import { getRequestIdSqs } from '../lib/aws/get-request-id-sqs'
+import { getRequestIdSqs } from '../lib/ctx/get-request-id-sqs'
 
 beforeEach(async (t) => {
   t.context = await getJsonFixture('sqs-event.json')
