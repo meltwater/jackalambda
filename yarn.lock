@@ -515,10 +515,10 @@
   resolved "https://registry.yarnpkg.com/@istanbuljs/schema/-/schema-0.1.2.tgz#26520bf09abe4a5644cd5414e37125a8954241dd"
   integrity sha512-tsAQNx32a8CoFhjhijUIhI4kccIAgmGhy8LZMZgGfmXcpMbPRUqn5LWmgRttILi6yeGmBJd2xsPkFMs0PzgPCw==
 
-"@meltwater/aws-configuration-fetcher@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@meltwater/aws-configuration-fetcher/-/aws-configuration-fetcher-0.1.2.tgz#232f1b5b5c19232c44ac170dd523dcdfce9909b8"
-  integrity sha512-fiTEHDgkGzQ+kft8itBomtTILJXpq0NayyEdMlEZOTDq57lQ24vXEF4q1v0WH9V8+J7uiTo8U5b+tTjyCnZzkg==
+"@meltwater/aws-configuration-fetcher@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@meltwater/aws-configuration-fetcher/-/aws-configuration-fetcher-0.3.1.tgz#df16f82fb5baebc0d3c3b37cc2eb29da5c9524e8"
+  integrity sha512-HZFJr+qPWs4tT6rb4XpS/fK3zY2IyLU7RuNiGtc9ImeL9sLiv/60y+ysgtp07rq7gVIXBcW1wPMsMI7XtuMJdg==
   dependencies:
     argument-contracts "^1.1.0"
     aws-xray-sdk-core "^3.2.0"
