@@ -1,6 +1,7 @@
 {
   "Records": [
     {
+      "eventSource": "aws:sqs",
       "body": "{\"test\":\"data\",\"canBe\":\"so much fun\"}",
       "messageAttributes": {
         "reqId": {
