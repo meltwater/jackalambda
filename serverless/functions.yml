@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 head:
   handler: handlers/head/handle-invoke.handler
