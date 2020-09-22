@@ -2,10 +2,10 @@ import path from 'path'
 
 import createExamples from '@meltwater/examplr'
 
-import todo from './todo'
+import head from './head'
 
 const examples = {
-  todo
+  head
 }
 
 const envVars = ['LOG_LEVEL', 'LOG_FILTER', 'LOG_OUTPUT_MODE']
