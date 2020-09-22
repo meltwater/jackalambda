@@ -1,6 +1,4 @@
-import {
-  createSsmStringConfigurationRequest
-} from '@meltwater/aws-configuration-fetcher'
+import { createSsmStringConfigurationRequest } from '@meltwater/aws-configuration-fetcher'
 
 export const configurationRequests = [
   createSsmStringConfigurationRequest(

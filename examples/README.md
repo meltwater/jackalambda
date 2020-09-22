@@ -1,7 +1,5 @@
 # Examples
 
-<!--- TODO: Update all uses of todo with added example. -->
-
 ## Running Examples Locally
 
 ### Local configuration
@@ -33,19 +31,19 @@ $ yarn run example
 Run provided examples with, e.g.,
 
 ```
-$ yarn run example todo
+$ yarn run example head
 ```
 
 Pass arguments to examples with
 
 ```
-$ yarn run example todo false
+$ yarn run example head other-fixture
 ```
 
 Automatically watch and rerun an example on changes with, e.g.,
 
 ```
-$ yarn run example:watch todo
+$ yarn run example:watch head
 ```
 
 #### Debugging examples
@@ -53,7 +51,7 @@ $ yarn run example:watch todo
 Debug examples with, e.g.,
 
 ```
-$ yarn run example:inspect todo
+$ yarn run example:inspect head
 ```
 
 For examples which run a single process and then exit,
@@ -70,7 +68,7 @@ export default ({log}) => async () => {
 Automatically watch and rerun a debuggable example on changes with, e.g.,
 
 ```
-$ yarn run example:inspect:watch todo
+$ yarn run example:inspect:watch head
 ```
 
 ## Writing New Examples
