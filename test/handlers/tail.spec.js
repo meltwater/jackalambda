@@ -8,7 +8,7 @@ test('processor', async (t) => {
   const event = { foo: 123 }
 
   const createFactories = (config, ctx) => {
-    const factories = new Factories(config, ctx)
+    const factories = new Factories(mockConfig, ctx)
     return factories
   }
 
@@ -22,3 +22,5 @@ test('processor', async (t) => {
   const data = await handler(event, {})
   t.snapshot(data, 'handler')
 })
+
+const mockConfig = {}

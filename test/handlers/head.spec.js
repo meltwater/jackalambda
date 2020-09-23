@@ -14,16 +14,16 @@ test('processor', async (t) => {
   const event = await readJson('fixtures', 'head.json')
 
   const createFactories = (config, ctx) => {
-    const factories = new Factories(config, ctx)
-    return {
-      ...factories,
-      getTailLambdaClient: () => ({
-        invokeJson: async (...args) => {
-          t.snapshot(args, 'tailLambdaClient.invokeJson')
-          return { foo: 123 }
-        }
-      })
-    }
+    const factories = new Factories(mockConfig, ctx)
+
+    factories.getTailLambdaClient = () => ({
+      invokeJson: async (...args) => {
+        t.snapshot(args, 'tailLambdaClient.invokeJson')
+        return { foo: 123 }
+      }
+    })
+
+    return factories
   }
 
   const handler = createJsonHandler({
@@ -36,3 +36,5 @@ test('processor', async (t) => {
   const data = await handler(event, context)
   t.snapshot(data, 'handler')
 })
+
+const mockConfig = {}
