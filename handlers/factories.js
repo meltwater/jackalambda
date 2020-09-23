@@ -8,7 +8,7 @@ export class Factories {
     this._ctx = ctx
   }
 
-  getTailLambdaClient() {
+  createTailLambdaClient() {
     const { tailLambdaArn } = this.config
     ac.assertNotNil(tailLambdaArn, 'tailLambdaArn')
     return new LambdaClient({

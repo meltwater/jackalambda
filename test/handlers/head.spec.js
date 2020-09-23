@@ -16,7 +16,7 @@ test('processor', async (t) => {
   const createFactories = (config, ctx) => {
     const factories = new Factories(mockConfig, ctx)
 
-    factories.getTailLambdaClient = () => ({
+    factories.createTailLambdaClient = () => ({
       invokeJson: async (...args) => {
         t.snapshot(args, 'tailLambdaClient.invokeJson')
         return { foo: 123 }
