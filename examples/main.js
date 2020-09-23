@@ -10,7 +10,10 @@ const examples = {
 
 const envVars = ['LOG_LEVEL', 'LOG_FILTER', 'LOG_OUTPUT_MODE']
 
-const defaultOptions = {}
+const defaultOptions = {
+  headLambdaArn:
+    'arn:aws:lambda:eu-west-1:768139847509:function:jackalambda-staging-head'
+}
 
 const { runExample } = createExamples({
   examples,
