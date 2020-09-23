@@ -1,4 +1,4 @@
-# Snapshot report for `test/head.spec.js`
+# Snapshot report for `test/handlers/head.spec.js`
 
 The actual snapshot is saved in `head.spec.js.snap`.
 

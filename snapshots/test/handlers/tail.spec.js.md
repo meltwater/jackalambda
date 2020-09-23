@@ -1,4 +1,4 @@
-# Snapshot report for `test/tail.spec.js`
+# Snapshot report for `test/handlers/tail.spec.js`
 
 The actual snapshot is saved in `tail.spec.js.snap`.
 

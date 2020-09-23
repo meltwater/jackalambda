@@ -1,8 +1,8 @@
 import test from 'ava'
 
-import { createJsonHandler } from '../lib'
-import { Factories } from '../handlers/factories'
-import { createProcessor } from '../handlers/tail/processor'
+import { createJsonHandler } from '../../lib'
+import { Factories } from '../../handlers/factories'
+import { createProcessor } from '../../handlers/tail/processor'
 
 test('processor', async (t) => {
   const event = { foo: 123 }

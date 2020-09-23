@@ -1,8 +1,8 @@
 import test from 'ava'
 
-import { createJsonHandler, readJson } from '../lib'
-import { Factories } from '../handlers/factories'
-import { createProcessor } from '../handlers/head/processor'
+import { createJsonHandler, readJson } from '../../lib'
+import { Factories } from '../../handlers/factories'
+import { createProcessor } from '../../handlers/head/processor'
 
 const configurationRequests = []
 const context = {
