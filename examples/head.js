@@ -1,9 +1,13 @@
-import { readJson } from '../lib'
-import { handleInvoke } from '../handlers/head/processor'
+import { readJson, LambdaClient } from '../lib'
 
-export default ({ log }) => async (req = 'head') => {
-  process.env.AWS_SDK_LOAD_CONFIG = 'true'
-  process.env.IS_LOCAL = 'true'
-  const event = await readJson('fixtures', `${req}.json`)
-  return handleInvoke(event, {})
+process.env.AWS_SDK_LOAD_CONFIG = 'true'
+
+export default ({ headLambdaArn, log }) => async (req = 'head') => {
+  const input = await readJson('fixtures', `${req}.json`)
+  const client = new LambdaClient({
+    name: 'head',
+    arn: headLambdaArn,
+    log
+  })
+  return client.invokeJson(input)
 }
