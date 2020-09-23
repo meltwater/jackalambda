@@ -1,14 +1,7 @@
-import { createJsonHandler } from '../../lib'
-
-import { createFactories } from '../factories'
-
-const createProcessor = (factories, { log }) => async (event, context) => {
+export const createProcessor = (factories, { log }) => async (
+  event,
+  context
+) => {
   log.info('handled')
   return event
 }
-
-export const handleInvoke = createJsonHandler({
-  configurationRequests: [],
-  createFactories,
-  createProcessor
-})
