@@ -19,5 +19,5 @@
         - Ref: 'AWS::Region'
         - ':'
         - Ref: 'AWS::AccountId'
-        - ':function:${self:custom.app}-${self:custom.name}-${self:provider.stage}'
+        - ':function:${self:custom.name}-${self:provider.stage}'
         - '-tail'
