@@ -25,6 +25,7 @@
     "docs"
   ],
   "scripts": {
+    "docs": "documentation build ./index.js -f md > ./docs/README.md",
     "test": "nyc ava",
     "pretest": "npm-run-all lint",
     "posttest": "serverless package",
@@ -61,6 +62,8 @@
     "argument-contracts": "^1.1.0",
     "aws-xray-sdk": "^3.2.0",
     "cache-manager": "^3.4.0",
+    "documentation": "^13.0.2",
+    "eslint-plugin-jsdoc": "^30.6.2",
     "esm": "^3.2.25",
     "uuid": "^8.3.0"
   },
