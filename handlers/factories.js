@@ -3,7 +3,7 @@ import ac from 'argument-contracts'
 import { LambdaClient } from '../lib'
 
 export class Factories {
-  constructor(config, ctx) {
+  constructor(ctx, config) {
     this.config = config
     this._ctx = ctx
   }

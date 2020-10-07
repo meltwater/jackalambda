@@ -13,7 +13,7 @@ const context = {
 test('processor', async (t) => {
   const event = await readJson('fixtures', 'head.json')
 
-  const createFactories = (config, ctx) => {
+  const createFactories = (ctx) => {
     const factories = new Factories(mockConfig, ctx)
 
     factories.createTailLambdaClient = () => ({

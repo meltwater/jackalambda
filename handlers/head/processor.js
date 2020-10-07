@@ -1,4 +1,4 @@
-export const createProcessor = (factories, { log }) => async (
+export const createProcessor = ({ log }, factories) => async (
   event,
   context
 ) => {

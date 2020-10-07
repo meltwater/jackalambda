@@ -25,6 +25,45 @@ $ yarn add @meltwater/jackalambda
 [npm]: https://www.npmjs.com/
 [Yarn]: https://yarnpkg.com/
 
+## Usage
+
+### Simplest example
+
+The very simplest usage of the api requires a single factory function to be passed.
+
+```javascript
+// Handler function for a directly invoked lambda function that returns json
+import { createHandler } from '@meltwater/jackalambda'
+
+export handler = createHandler({
+  processorFactory: ({ log }) => (event, context) => {
+    log.info({ meta: event }, 'start: processing')
+
+    return event;
+  }
+})
+```
+
+### Separation of concerns
+
+There are a handful of useful seams provided to make creating your lambda more
+maintainable. `createHandler` take is the following parameters:
+
+- `parser` - A function for parsing the incoming lambda event for the processor
+- `serializer` - A function to convert the output of the processor into a lambda response. Eg Converting json into an API Gateway response
+- `configurationRequests` - An array of configurationRequests (see [@meltwater/aws-configuration-fetcher])
+- `createCache` - A function for creating a cache around configuration requests (see [cache-manager])
+- `createFactories` - A function for building any dependencies that rely on configuration
+- `createProcessor` - A function that is provided the current context and the response from `createFactories` and returns the main function for the lambda. This function will be provided the parsed event from the `parser` and it's response will be serialized by the `serializer`
+
+### Api Docs
+
+For a full set of documentation check out the [docs]!
+
+[docs]: /docs/README.md
+[@meltwater/aws-configuration-fetcher]: https://github.com/meltwater/aws-configuration-fetcher
+[cache-manager]: https://www.npmjs.com/package/cache-manager
+
 ## Development and Testing
 
 ### Quickstart

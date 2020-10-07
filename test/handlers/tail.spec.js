@@ -7,13 +7,12 @@ import { createProcessor } from '../../handlers/tail/processor'
 test('processor', async (t) => {
   const event = { foo: 123 }
 
-  const createFactories = (config, ctx) => {
+  const createFactories = (ctx) => {
     const factories = new Factories(mockConfig, ctx)
     return factories
   }
 
   const handler = createJsonHandler({
-    configurationRequests: [],
     createFactories,
     createProcessor,
     t
