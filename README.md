@@ -47,7 +47,7 @@ export handler = createHandler({
 ### Separation of concerns
 
 There are a handful of useful seams provided to make creating your lambda more
-maintainable. `createHandler` take is the following parameters:
+maintainable. `createHandler` takes the following parameters:
 
 - `parser` - A function for parsing the incoming lambda event for the processor
 - `serializer` - A function to convert the output of the processor into a lambda response. Eg Converting json into an API Gateway response
