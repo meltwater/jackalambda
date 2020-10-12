@@ -2,8 +2,8 @@ import ac from 'argument-contracts'
 
 import { LambdaClient } from '../lib'
 
-export class Factories {
-  constructor(config, ctx) {
+export class Container {
+  constructor(ctx, config) {
     this.config = config
     this._ctx = ctx
   }
@@ -18,4 +18,4 @@ export class Factories {
   }
 }
 
-export const createFactories = (...args) => new Factories(...args)
+export const createContainer = (...args) => new Container(...args)

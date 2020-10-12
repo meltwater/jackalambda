@@ -1,7 +1,7 @@
-export const createProcessor = (factories, { log }) => async (
+export const createProcessor = ({ log }, container) => async (
   event,
   context
 ) => {
-  const tailLambdaClient = factories.createTailLambdaClient()
+  const tailLambdaClient = container.createTailLambdaClient()
   return tailLambdaClient.invokeJson(event)
 }

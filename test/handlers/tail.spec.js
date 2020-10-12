@@ -1,20 +1,19 @@
 import test from 'ava'
 
 import { createJsonHandler } from '../../lib'
-import { Factories } from '../../handlers/factories'
+import { Container } from '../../handlers/container'
 import { createProcessor } from '../../handlers/tail/processor'
 
 test('processor', async (t) => {
   const event = { foo: 123 }
 
-  const createFactories = (config, ctx) => {
-    const factories = new Factories(mockConfig, ctx)
-    return factories
+  const createContainer = (ctx) => {
+    const container = new Container(mockConfig, ctx)
+    return container
   }
 
   const handler = createJsonHandler({
-    configurationRequests: [],
-    createFactories,
+    createContainer,
     createProcessor,
     t
   })

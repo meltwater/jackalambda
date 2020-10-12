@@ -2,11 +2,79 @@
 
 [![Drone](https://drone.meltwater.io/api/badges/meltwater/jackalambda/status.svg?branch=master)](https://drone.meltwater.io/meltwater/jackalambda)
 
-Mythical lambda creature
+Mythical lambda creature.
 
 ## Description
 
 Toolkit for writing production ready Lambda functions.
+
+Jackalambda provides a consistent way to write Lambda handlers
+that let you focus on the business logic of you function and none of the boilerplate.
+
+With Jackalambda, you get:
+
+- Consistent [JSON logging][@meltwater/mlabs-logger].
+- [Cached remote secrets and configuration][@meltwater/aws-configuration-fetcher].
+- AWS event detection and parsing.
+- X-Ray enhanced clients for common AWS services.
+- Distributed request id support.
+- Isolated side effects for fully testable handlers.
+- [AVA] logging integration.
+
+All Jackalambda handlers follow a clear execution path:
+
+1. Resolve and validate all required configuration, or fail with a clear error.
+2. Isolate all side-effect producing dependencies in a container with their configuration.
+3. Run a processor function with a reference to the container.
+4. Ensure the logger is always available, scoped per-request, and always logs failures,
+   event fatal ones.
+
+### Example
+
+_This project is a fully working,
+real world, example of using Jackalambda.
+Just check out the `handlers` folder._
+
+Creating your first handler is this simple:
+
+```js
+import { createHandler, LambdaClient } from '@meltwater/jackalambda'
+import { createSsmStringConfigurationRequest } from '@meltwater/aws-configuration-fetcher'
+
+export handler = createHandler({
+  createProcessor: ({ log }) => (event, context) => {
+    log.info({ meta: event }, 'I 💖 Jackalambda')
+    return { success: true }
+  }
+})
+```
+
+And here is how to add a side-effect that calls another lambda
+where the lambda ARN is stored in SSM:
+
+```js
+import { createHandler } from '@meltwater/jackalambda'
+
+export handler = createHandler({
+  configurationRequests: [
+    createSsmStringConfigurationRequest(
+      'otherLambdaArn',
+      process.env.OTHER_LAMBDA_ARN_SSM_PATH
+    )
+  ],
+  createContainer: (ctx, { otherLambdaArn }) => ({
+    otherLambdaClient: new LambdaClient({ arn: otherLambdaArn, ...ctx })
+  }),
+  createProcessor: ({ log }, { otherLambdaClient }) => (event, context) => {
+    log.info({ meta: event }, 'I 💖 Jackalambda')
+    return otherLambdaClient.invokeJson(event)
+  }
+})
+```
+
+[AVA]: https://github.com/avajs/ava
+[@meltwater/aws-configuration-fetcher]: https://github.com/meltwater/aws-configuration-fetcher
+[@meltwater/mlabs-logger]: https://github.com/meltwater/mlabs-logger
 
 ## Installation
 
@@ -24,6 +92,12 @@ $ yarn add @meltwater/jackalambda
 
 [npm]: https://www.npmjs.com/
 [Yarn]: https://yarnpkg.com/
+
+## Usage
+
+For a full set of documentation check out the [docs]!
+
+[docs]: /docs/README.md
 
 ## Development and Testing
 
