@@ -2,7 +2,7 @@
 
 [![Drone](https://drone.meltwater.io/api/badges/meltwater/jackalambda/status.svg?branch=master)](https://drone.meltwater.io/meltwater/jackalambda)
 
-Mythical lambda creature
+Mythical lambda creature.
 
 ## Description
 
@@ -32,14 +32,12 @@ $ yarn add @meltwater/jackalambda
 The very simplest usage of the api requires a single factory function to be passed.
 
 ```javascript
-// Handler function for a directly invoked lambda function that returns json
 import { createHandler } from '@meltwater/jackalambda'
 
 export handler = createHandler({
-  processorFactory: ({ log }) => (event, context) => {
+  createProcessor: ({ log }) => (event, context) => {
     log.info({ meta: event }, 'start: processing')
-
-    return event;
+    return event
   }
 })
 ```
@@ -47,7 +45,7 @@ export handler = createHandler({
 ### Separation of concerns
 
 There are a handful of useful seams provided to make creating your lambda more
-maintainable. `createHandler` takes the following parameters:
+maintainable; `createHandler` takes the following parameters:
 
 - `parser` - A function for parsing the incoming lambda event for the processor
 - `serializer` - A function to convert the output of the processor into a lambda response. Eg Converting json into an API Gateway response
