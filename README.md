@@ -47,12 +47,12 @@ export handler = createHandler({
 There are a handful of useful seams provided to make creating your lambda more
 maintainable; `createHandler` takes the following parameters:
 
-- `parser` - A function for parsing the incoming lambda event for the processor
-- `serializer` - A function to convert the output of the processor into a lambda response. Eg Converting json into an API Gateway response
 - `configurationRequests` - An array of configurationRequests (see [@meltwater/aws-configuration-fetcher])
-- `createCache` - A function for creating a cache around configuration requests (see [cache-manager])
 - `createContainer` - A function for building any dependencies that rely on configuration
 - `createProcessor` - A function that is provided the current context and the response from `createContainer` and returns the main function for the lambda. This function will be provided the parsed event from the `parser` and it's response will be serialized by the `serializer`
+- `parser` - A function for parsing the incoming lambda event for the processor
+- `serializer` - A function to convert the output of the processor into a lambda response. Eg Converting json into an API Gateway response
+- `createCache` - A function for creating a cache around configuration requests (see [cache-manager])
 
 ### Api Docs
 
