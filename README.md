@@ -38,8 +38,7 @@ Just check out the `handlers` folder._
 Creating your first handler is this simple:
 
 ```js
-import { createHandler, LambdaClient } from '@meltwater/jackalambda'
-import { createSsmStringConfigurationRequest } from '@meltwater/aws-configuration-fetcher'
+import { createHandler } from '@meltwater/jackalambda'
 
 export handler = createHandler({
   createProcessor: ({ log }) => (event, context) => {
@@ -53,7 +52,8 @@ And here is how to add a side-effect that calls another lambda
 where the lambda ARN is stored in SSM:
 
 ```js
-import { createHandler } from '@meltwater/jackalambda'
+import { createHandler, LambdaClient } from '@meltwater/jackalambda'
+import { createSsmStringConfigurationRequest } from '@meltwater/aws-configuration-fetcher'
 
 export handler = createHandler({
   configurationRequests: [
