@@ -22,7 +22,7 @@
     -   [Parameters][18]
 -   [serializer][19]
     -   [Parameters][20]
--   [createFactories][21]
+-   [createContainer][21]
     -   [Parameters][22]
 -   [createProcessor][23]
     -   [Parameters][24]
@@ -179,7 +179,7 @@ Type: [Function][46]
 
 Returns **any** The serialized lambda response
 
-## createFactories
+## createContainer
 
 Type: [Function][46]
 
@@ -197,7 +197,7 @@ Type: [Function][46]
 ### Parameters
 
 -   `appContext` **[AppContext][47]** The context for the current execution of the lambda
--   `factories` **[Object][42]** The response from the createFactories invocation
+-   `container` **[Object][42]** The response from the createContainer invocation
 
 Returns **[Object][42]** All of the side effect dependencies in an object
 
@@ -228,7 +228,7 @@ The entry point for creating handlers
     -   `options.parser` **[parser][48]** A function to parse the incoming lambda event (optional, default `(data)=>data`)
     -   `options.serializer` **[serializer][49]** A function to serialize the response from the lambda invocation (optional, default `(data)=>data`)
     -   `options.configurationRequests` **[Array][50]&lt;ConfigurationRequest>** An array of configuration requests to be fulfilled before each invocation of the handler (optional, default `[]`)
-    -   `options.createFactories` **[createFactories][51]** A factory function that will return all needed side effect dependencies. Eg. Http (optional, default `()=>({})`)
+    -   `options.createContainer` **[createContainer][51]** A factory function that will return all needed side effect dependencies. Eg. Http (optional, default `()=>({})`)
     -   `options.createCache` **[createCache][52]** A factory function that will return the main handler for the lambda (optional, default `defaultCache`)
     -   `options.createProcessor` **[createProcessor][53]** A factory function that will return the main handler for the lambda
     -   `options.t` **any?** For use with Ava during testing
@@ -342,7 +342,7 @@ Returns **[Object][42]** The file contents parsed as JSON
 
 [20]: #parameters-7
 
-[21]: #createfactories
+[21]: #createcontainer
 
 [22]: #parameters-8
 
@@ -402,7 +402,7 @@ Returns **[Object][42]** The file contents parsed as JSON
 
 [50]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-[51]: #createfactories
+[51]: #createcontainer
 
 [52]: #createcache
 

@@ -1,8 +1,8 @@
 import { createJsonHandler } from '../../lib'
-import { createFactories } from '../factories'
+import { createContainer } from '../container'
 import { createProcessor } from '../processor'
 
 export const handleInvoke = createJsonHandler({
-  createFactories,
+  createContainer,
   createProcessor
 })

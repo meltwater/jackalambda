@@ -51,8 +51,8 @@ maintainable; `createHandler` takes the following parameters:
 - `serializer` - A function to convert the output of the processor into a lambda response. Eg Converting json into an API Gateway response
 - `configurationRequests` - An array of configurationRequests (see [@meltwater/aws-configuration-fetcher])
 - `createCache` - A function for creating a cache around configuration requests (see [cache-manager])
-- `createFactories` - A function for building any dependencies that rely on configuration
-- `createProcessor` - A function that is provided the current context and the response from `createFactories` and returns the main function for the lambda. This function will be provided the parsed event from the `parser` and it's response will be serialized by the `serializer`
+- `createContainer` - A function for building any dependencies that rely on configuration
+- `createProcessor` - A function that is provided the current context and the response from `createContainer` and returns the main function for the lambda. This function will be provided the parsed event from the `parser` and it's response will be serialized by the `serializer`
 
 ### Api Docs
 
