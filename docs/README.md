@@ -231,7 +231,7 @@ The entry point for creating handlers
     -   `options.serializer` **[serializer][51]** A function to serialize the response from the lambda invocation (optional, default `(data)=>data`)
     -   `options.configurationRequests` **[Array][52]&lt;ConfigurationRequest>** An array of configuration requests to be fulfilled before each invocation of the handler (optional, default `[]`)
     -   `options.createContainer` **[createContainer][53]** A factory function that will return all needed side effect dependencies. Eg. Http (optional, default `()=>({})`)
-    -   `options.createCache` **[createCache][54]** A factory function that will return the main handler for the lambda (optional, default `defaultCache`)
+    -   `options.createCache` **[createCache][54]** An instance of cacheManager. Will be used to cache configuration. (optional, default `defaultCache`)
     -   `options.createProcessor` **[createProcessor][55]** A factory function that will return the main handler for the lambda
     -   `options.t` **any?** For use with AVA during testing
 
@@ -239,16 +239,13 @@ Returns **[lambdaHandler][56]** A lambda handler
 
 ## createJsonHandler
 
-A handler designed for direct lambda invocations that respond with JSON a object
+A handler designed for direct lambda invocations that respond with a JSON serializable object.
+Takes identical options as createHandler, however the serializer and parser
+options will always be overridden with the identity function.
 
 ### Parameters
 
--   `options` **[object][44]** See below
-    -   `options.configurationRequests` **[Array][52]&lt;ConfigurationRequest>** An array of configuration requests to be fulfilled before each invocation of the handler (optional, default `[]`)
-    -   `options.createContainer` **[createContainer][53]** A factory function that will return all needed side effect dependencies. Eg. Http (optional, default `()=>({})`)
-    -   `options.createProcessor` **[createProcessor][55]** A factory function that will return the main handler for the lambda
-    -   `options.createCache` **[createCache][54]** A factory function that will return the main handler for the lambda (optional, default `defaultCache`)
-    -   `options.t` **any?** For use with Ava during testing
+-   `options`  
 
 ## parseJsonHttpEvent
 
