@@ -8,6 +8,44 @@ Mythical lambda creature.
 
 Toolkit for writing production ready Lambda functions.
 
+Jackalambda provides a consistent way to write Lambda handlers
+that let you focus on the business logic of you function and none of the boilerplate.
+
+With Jackalambda, you get:
+
+- Consistent [JSON logging][@meltwater/mlabs-logger].
+- [Cached remote secrets and configuration][@meltwater/aws-configuration-fetcher].
+- AWS event detection and parsing.
+- X-Ray enhanced clients for common AWS services.
+- Distributed request id support.
+- Isolated side effects for fully testable handlers.
+- [AVA] logging integration.
+
+All Jackalambda handlers follow a clear execution path:
+
+1. Resolve and validate all required configuration, or fail with a clear error.
+2. Isolate all side-effect producing dependencies in a container with their configuration.
+3. Run a processor function with a reference to the container.
+4. Ensure the logger is always available, scoped per-request, and always logs failures,
+   event fatal ones.
+
+Creating your first handler is this simple:
+
+```js
+import { createHandler } from '@meltwater/jackalambda'
+
+export handler = createHandler({
+  createProcessor: ({ log }) => (event, context) => {
+    log.info({ meta: event }, 'I 💖 Jackalambda')
+    return { success: true }
+  }
+})
+```
+
+[AVA]: https://github.com/avajs/ava
+[@meltwater/aws-configuration-fetcher]: https://github.com/meltwater/aws-configuration-fetcher
+[@meltwater/mlabs-logger]: https://github.com/meltwater/mlabs-logger
+
 ## Installation
 
 Add this as a dependency to your project using [npm] with
@@ -27,40 +65,9 @@ $ yarn add @meltwater/jackalambda
 
 ## Usage
 
-### Simplest example
-
-The very simplest usage of the api requires a single factory function to be passed.
-
-```javascript
-import { createHandler } from '@meltwater/jackalambda'
-
-export handler = createHandler({
-  createProcessor: ({ log }) => (event, context) => {
-    log.info({ meta: event }, 'start: processing')
-    return event
-  }
-})
-```
-
-### Separation of concerns
-
-There are a handful of useful seams provided to make creating your lambda more
-maintainable; `createHandler` takes the following parameters:
-
-- `configurationRequests` - An array of configurationRequests (see [@meltwater/aws-configuration-fetcher])
-- `createContainer` - A function for building any dependencies that rely on configuration
-- `createProcessor` - A function that is provided the current context and the response from `createContainer` and returns the main function for the lambda. This function will be provided the parsed event from the `parser` and it's response will be serialized by the `serializer`
-- `parser` - A function for parsing the incoming lambda event for the processor
-- `serializer` - A function to convert the output of the processor into a lambda response. Eg Converting json into an API Gateway response
-- `createCache` - A function for creating a cache around configuration requests (see [cache-manager])
-
-### Api Docs
-
 For a full set of documentation check out the [docs]!
 
 [docs]: /docs/README.md
-[@meltwater/aws-configuration-fetcher]: https://github.com/meltwater/aws-configuration-fetcher
-[cache-manager]: https://www.npmjs.com/package/cache-manager
 
 ## Development and Testing
 
