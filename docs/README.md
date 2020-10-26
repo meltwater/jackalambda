@@ -45,23 +45,23 @@
     -   [Parameters][41]
 -   [createApiJsonHandler][42]
     -   [Parameters][43]
--   [createJsonWrapper][44]
+-   [parseJsonHttpEvent][44]
     -   [Parameters][45]
--   [parseJsonHttpEvent][46]
+-   [HttpEvent][46]
     -   [Parameters][47]
--   [HttpEvent][48]
-    -   [Parameters][49]
-    -   [Properties][50]
--   [parseJsonMonoSqsEvent][51]
+    -   [Properties][48]
+-   [parseJsonMonoSqsEvent][49]
+    -   [Parameters][50]
+-   [SqsEvent][51]
     -   [Parameters][52]
--   [SqsEvent][53]
-    -   [Parameters][54]
-    -   [Properties][55]
--   [MultiStatusJsonResponse][56]
+    -   [Properties][53]
+-   [MultiStatusJsonResponse][54]
+    -   [Parameters][55]
+-   [multiStatusCodeJsonSerializer][56]
     -   [Parameters][57]
--   [multiStatusCodeJsonSerializer][58]
+-   [createBasicWrapper][58]
     -   [Parameters][59]
--   [createBasicWrapper][60]
+-   [createJsonWrapper][60]
     -   [Parameters][61]
 -   [readJson][62]
     -   [Parameters][63]
@@ -327,34 +327,18 @@ options will always be overridden with the identity function.
 ## createApiJsonHandler
 
 A handler designed for lambda invocations through api gateway that respond with a JSON serializable object.
-Takes identical options as createHandler, however the serializer and wrapper
-options will always be overridden with the multi-status code versions.
+Takes identical options as createHandler, however the wrapper
+option will always be overridden with the multi-status code version.
 
 See the following:
 
--   [createJsonWrapper][44]
--   [multiStatusCodeJsonSerializer][58]
--   [MultiStatusJsonResponse][56]
+-   [createJsonWrapper][60]
+-   [multiStatusCodeJsonSerializer][56]
+-   [MultiStatusJsonResponse][54]
 
 ### Parameters
 
--   `options` **any** Takes identical options as createHandler, however the serializer and wrapper options will always be overridden with the multi-status code versions.
-
-## createJsonWrapper
-
-A processor that uses the provided parser and the multiStatusCodeJsonSerializer
-The response from the process needs to be in the form:
-{
-  statusCode: [number],
-  data: [JSON serializable object]
-}
-
-### Parameters
-
--   `ctx` **[object][64]** Internal use
--   `parser` **[parser][71]** The parser provided through `createHandler`
-
-Returns **[wrapper][73]** The wrapped processor
+-   `options` **any** Takes identical options as createHandler, however the wrapper option will always be overridden with the multi-status code version.
 
 ## parseJsonHttpEvent
 
@@ -444,6 +428,22 @@ A wrapper that handles top level logging/parsing/serialization orchestration
 -   `ctx` **[object][64]** Internal use
 -   `parser` **[parser][71]** The parser provided through `createHandler`
 -   `serializer` **[serializer][72]** The serializer provided through `createHandler`
+
+Returns **[wrapper][73]** The wrapped processor
+
+## createJsonWrapper
+
+A processor that uses the provided parser and the multiStatusCodeJsonSerializer
+The response from the process needs to be in the form:
+{
+  statusCode: [number],
+  data: [JSON serializable object]
+}
+
+### Parameters
+
+-   `ctx` **[object][64]** Internal use
+-   `parser` **[parser][71]** The parser provided through `createHandler`
 
 Returns **[wrapper][73]** The wrapped processor
 
@@ -543,39 +543,39 @@ Returns **[Object][64]** The file contents parsed as JSON
 
 [43]: #parameters-18
 
-[44]: #createjsonwrapper
+[44]: #parsejsonhttpevent
 
 [45]: #parameters-19
 
-[46]: #parsejsonhttpevent
+[46]: #httpevent
 
 [47]: #parameters-20
 
-[48]: #httpevent
+[48]: #properties-3
 
-[49]: #parameters-21
+[49]: #parsejsonmonosqsevent
 
-[50]: #properties-3
+[50]: #parameters-21
 
-[51]: #parsejsonmonosqsevent
+[51]: #sqsevent
 
 [52]: #parameters-22
 
-[53]: #sqsevent
+[53]: #properties-4
 
-[54]: #parameters-23
+[54]: #multistatusjsonresponse
 
-[55]: #properties-4
+[55]: #parameters-23
 
-[56]: #multistatusjsonresponse
+[56]: #multistatuscodejsonserializer
 
 [57]: #parameters-24
 
-[58]: #multistatuscodejsonserializer
+[58]: #createbasicwrapper
 
 [59]: #parameters-25
 
-[60]: #createbasicwrapper
+[60]: #createjsonwrapper
 
 [61]: #parameters-26
 
