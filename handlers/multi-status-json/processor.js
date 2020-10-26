@@ -9,6 +9,6 @@ export const createProcessor = ({ log }) => async (event, context) => {
   log.info('success response')
   return {
     statusCode: 200,
-    event
+    body: event
   }
 }
