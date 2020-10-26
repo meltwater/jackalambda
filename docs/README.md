@@ -61,7 +61,7 @@
     -   [Parameters][57]
 -   [createBasicWrapper][58]
     -   [Parameters][59]
--   [createJsonWrapper][60]
+-   [createApiJsonWrapper][60]
     -   [Parameters][61]
 -   [readJson][62]
     -   [Parameters][63]
@@ -120,18 +120,18 @@ A basic POJO encapsulating sent message attributes
 
 ### Parameters
 
--   `options` **[Object][64]** 
-    -   `options.md5OfMessageBody` **[string][65]** 
-    -   `options.messageId` **[string][65]** 
-    -   `options.md5OfMessageAttributes` **[string][65]** 
-    -   `options.sequenceNumber` **[number][66]** 
+-   `options` **[Object][64]**
+    -   `options.md5OfMessageBody` **[string][65]**
+    -   `options.messageId` **[string][65]**
+    -   `options.md5OfMessageAttributes` **[string][65]**
+    -   `options.sequenceNumber` **[number][66]**
 
 ### Properties
 
--   `md5OfMessageBody` **[string][65]** 
--   `messageId` **[string][65]** 
--   `md5OfMessageAttributes` **[string][65]** 
--   `sequenceNumber` **[number][66]** 
+-   `md5OfMessageBody` **[string][65]**
+-   `messageId` **[string][65]**
+-   `md5OfMessageAttributes` **[string][65]**
+-   `sequenceNumber` **[number][66]**
 
 ## SqsClient
 
@@ -184,24 +184,24 @@ The different types of events that can occur
 
 ### Properties
 
--   `cloudfront` **[string][65]** 
--   `awsConfig` **[string][65]** 
--   `codeCommit` **[string][65]** 
--   `apiGatewayAuthorizer` **[string][65]** 
--   `cloudFormation` **[string][65]** 
--   `ses` **[string][65]** 
--   `apiGatewayAwsProxy` **[string][65]** 
--   `scheduledEvent` **[string][65]** 
--   `cloudWatchLogs` **[string][65]** 
--   `sns` **[string][65]** 
--   `dynamoDb` **[string][65]** 
--   `kinesisFirehose` **[string][65]** 
--   `cognitoSyncTrigger` **[string][65]** 
--   `kinesis` **[string][65]** 
--   `s3` **[string][65]** 
--   `mobileBackend` **[string][65]** 
--   `sqs` **[string][65]** 
--   `lambda` **[string][65]** 
+-   `cloudfront` **[string][65]**
+-   `awsConfig` **[string][65]**
+-   `codeCommit` **[string][65]**
+-   `apiGatewayAuthorizer` **[string][65]**
+-   `cloudFormation` **[string][65]**
+-   `ses` **[string][65]**
+-   `apiGatewayAwsProxy` **[string][65]**
+-   `scheduledEvent` **[string][65]**
+-   `cloudWatchLogs` **[string][65]**
+-   `sns` **[string][65]**
+-   `dynamoDb` **[string][65]**
+-   `kinesisFirehose` **[string][65]**
+-   `cognitoSyncTrigger` **[string][65]**
+-   `kinesis` **[string][65]**
+-   `s3` **[string][65]**
+-   `mobileBackend` **[string][65]**
+-   `sqs` **[string][65]**
+-   `lambda` **[string][65]**
 -   `isValid` **[Function][68]** Return true if provided value is a valid event type, false otherwise
 
 ## parser
@@ -332,7 +332,7 @@ option will always be overridden with the multi-status code version.
 
 See the following:
 
--   [createJsonWrapper][60]
+-   [createApiJsonWrapper][60]
 -   [multiStatusCodeJsonSerializer][56]
 -   [MultiStatusJsonResponse][54]
 
@@ -403,9 +403,9 @@ A json response with statusCode
 
 ### Parameters
 
--   `$0` **[Object][64]** 
-    -   `$0.statusCode`  
-    -   `$0.body`  
+-   `$0` **[Object][64]**
+    -   `$0.statusCode`
+    -   `$0.body`
 -   `statusCode` **[number][66]** The statusCode of the response
 -   `body` **[Object][64]** The json object body of the response
 
@@ -431,7 +431,7 @@ A wrapper that handles top level logging/parsing/serialization orchestration
 
 Returns **[wrapper][73]** The wrapped processor
 
-## createJsonWrapper
+## createApiJsonWrapper
 
 A processor that uses the provided parser and the multiStatusCodeJsonSerializer
 The response from the process needs to be in the form:
@@ -575,7 +575,7 @@ Returns **[Object][64]** The file contents parsed as JSON
 
 [59]: #parameters-25
 
-[60]: #createjsonwrapper
+[60]: #createApiJsonWrapper
 
 [61]: #parameters-26
 
