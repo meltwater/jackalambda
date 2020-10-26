@@ -1,3 +1,5 @@
+import { MultiStatusJsonResponse } from '../../lib'
+
 export const createProcessor = ({ log }) => async (event, context) => {
   log.info('handled')
 
@@ -7,8 +9,8 @@ export const createProcessor = ({ log }) => async (event, context) => {
   }
 
   log.info('success response')
-  return {
+  return new MultiStatusJsonResponse({
     statusCode: 200,
     body: event
-  }
+  })
 }
