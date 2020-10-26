@@ -8,7 +8,6 @@ export const createProcessor = ({ log }) => async (event, context) => {
     throw new Error('Throwing error to demonstrate wrapper')
   }
 
-  log.info('success response')
   return new MultiStatusJsonResponse({
     statusCode: 200,
     body: event
