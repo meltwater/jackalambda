@@ -1,8 +1,9 @@
-import { createJsonHandler } from '../../lib'
+import { createApiJsonHandler, parseJsonHttpEvent } from '../../lib'
 import { createContainer } from '../container'
-import { createProcessor } from '../processor'
+import { createProcessor } from './processor'
 
-export const handlePost = createJsonHandler({
+export const handlePost = createApiJsonHandler({
+  parser: parseJsonHttpEvent,
   createContainer,
   createProcessor
 })

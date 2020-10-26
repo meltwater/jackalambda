@@ -5,3 +5,9 @@ head:
     SSM_TAIL_LAMBDA_ARN: ${self:custom.ssmPrefix}/tail_lambda_arn
 tail:
   handler: handlers/tail/handle-invoke.handler
+multiStatusJson:
+  handler: handlers/multi-status-json/handle-post.handler
+  events:
+    - http:
+        method: post
+        path: /example
