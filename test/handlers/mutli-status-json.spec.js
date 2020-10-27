@@ -32,7 +32,10 @@ test('snapshot generic failure', async (t) => {
 test('snapshot custom statusCode failure', async (t) => {
   const { handler } = t.context
 
-  const event = await readJson('fixtures', 'http-event-with-error-with-status-code.json')
+  const event = await readJson(
+    'fixtures',
+    'http-event-with-error-with-status-code.json'
+  )
 
   t.snapshot(await handler(event, {}), 'successful execution')
 })
@@ -100,7 +103,10 @@ test('should return new request id if one was not provided', async (t) => {
 test('should return status code of error', async (t) => {
   const { handler } = t.context
 
-  const event = await readJson('fixtures', 'http-event-with-error-with-status-code.json')
+  const event = await readJson(
+    'fixtures',
+    'http-event-with-error-with-status-code.json'
+  )
 
   const result = await handler(event, {})
 
