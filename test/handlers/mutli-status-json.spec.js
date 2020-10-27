@@ -32,6 +32,7 @@ test('should return with statusCode and body', async (t) => {
   t.is(result.statusCode, 200)
   t.true(typeof result.body === 'string')
   t.is(result.headers['Content-Type'], 'application/json')
+  t.regex(result.headers['x-request-id'], /.{10,}/)
 })
 
 test('should return with 500 and error for body on failure', async (t) => {
@@ -45,4 +46,29 @@ test('should return with 500 and error for body on failure', async (t) => {
   t.is(result.statusCode, 500)
   t.regex(result.body, /demonstrate/)
   t.is(result.headers['Content-Type'], 'application/json')
+  t.regex(result.headers['x-request-id'], /.{10,}/)
+})
+
+test('should return sent request id header', async (t) => {
+  const { handler } = t.context
+
+  const event = await readJson('fixtures', 'http-event.json')
+  const reqId = event.headers['x-request-id']
+
+  const result = await handler(event, {})
+
+  t.is(result.headers['x-request-id'], reqId)
+})
+
+test('should return new request id if one was not provided', async (t) => {
+  const { handler } = t.context
+
+  const event = await readJson('fixtures', 'http-event.json')
+  const reqId = event.headers['x-request-id']
+  delete event.headers['x-request-id']
+
+  const result = await handler(event, {})
+
+  t.not(result.headers['x-request-id'], reqId)
+  t.regex(result.headers['x-request-id'], /.{10,}/)
 })
