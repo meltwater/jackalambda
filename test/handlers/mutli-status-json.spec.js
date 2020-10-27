@@ -44,7 +44,7 @@ test('should return with 500 and error for body on failure', async (t) => {
 
   t.log(result)
   t.is(result.statusCode, 500)
-  t.regex(result.body.error.message, /demonstrate/)
+  t.regex(result.body, /demonstrate/)
   t.is(result.headers['Content-Type'], 'application/json')
   t.regex(result.headers['x-request-id'], /.{10,}/)
 })
