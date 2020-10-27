@@ -44,7 +44,7 @@ test('should return with 500 and error for body on failure', async (t) => {
 
   t.log(result)
   t.is(result.statusCode, 500)
-  t.regex(result.body, /demonstrate/)
+  t.regex(result.body.error.message, /demonstrate/)
   t.is(result.headers['Content-Type'], 'application/json')
   t.regex(result.headers['x-request-id'], /.{10,}/)
 })
@@ -71,4 +71,14 @@ test('should return new request id if one was not provided', async (t) => {
 
   t.not(result.headers['x-request-id'], reqId)
   t.regex(result.headers['x-request-id'], /.{10,}/)
+})
+
+test('should return status code of error', async (t) => {
+  const { handler } = t.context
+
+  const event = await readJson('fixtures', 'http-event-with-error-with-status-code.json')
+
+  const result = await handler(event, {})
+
+  t.is(result.statusCode, 418)
 })

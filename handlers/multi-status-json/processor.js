@@ -5,7 +5,11 @@ export const createProcessor = ({ log }) => async (event, context) => {
 
   if (event.body.throwError) {
     log.error('fail on purpose')
-    throw new Error('Throwing error to demonstrate wrapper')
+    const error = new Error('Throwing error to demonstrate wrapper')
+    if (event.body.statusCode) {
+      error.statusCode = event.body.statusCode
+    }
+    throw error
   }
 
   return new MultiStatusJsonResponse({
