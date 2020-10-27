@@ -13,6 +13,30 @@ beforeEach((t) => {
   }
 })
 
+test('snapshot success', async (t) => {
+  const { handler } = t.context
+
+  const event = await readJson('fixtures', 'http-event.json')
+
+  t.snapshot(await handler(event, {}), 'successful execution')
+})
+
+test('snapshot generic failure', async (t) => {
+  const { handler } = t.context
+
+  const event = await readJson('fixtures', 'http-event-with-error.json')
+
+  t.snapshot(await handler(event, {}), 'successful execution')
+})
+
+test('snapshot custom statusCode failure', async (t) => {
+  const { handler } = t.context
+
+  const event = await readJson('fixtures', 'http-event-with-error-with-status-code.json')
+
+  t.snapshot(await handler(event, {}), 'successful execution')
+})
+
 test('should not throw for empty body', async (t) => {
   const { handler } = t.context
 
@@ -44,7 +68,7 @@ test('should return with 500 and error for body on failure', async (t) => {
 
   t.log(result)
   t.is(result.statusCode, 500)
-  t.regex(result.body, /demonstrate/)
+  t.regex(result.body, /demonstration/)
   t.is(result.headers['Content-Type'], 'application/json')
   t.regex(result.headers['x-request-id'], /.{10,}/)
 })
