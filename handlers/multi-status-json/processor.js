@@ -1,10 +1,8 @@
 import { MultiStatusJsonResponse } from '../../lib'
 
 export const createProcessor = ({ log }) => async (event, context) => {
-
   if (event.body.throwError) {
-    log.error('fail on purpose')
-    const error = new Error('Throwing error to demonstrate wrapper')
+    const error = new Error('Throwing error for demonstration since throwError is true')
     if (event.body.statusCode) {
       error.statusCode = event.body.statusCode
     }
