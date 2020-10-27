@@ -1,7 +1,6 @@
 import { MultiStatusJsonResponse } from '../../lib'
 
 export const createProcessor = ({ log }) => async (event, context) => {
-  log.info('handled')
 
   if (event.body.throwError) {
     log.error('fail on purpose')
