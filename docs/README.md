@@ -59,7 +59,7 @@
     -   [Parameters][55]
 -   [multiStatusCodeJsonSerializer][56]
     -   [Parameters][57]
--   [createBasicWrapper][58]
+-   [createDefaultWrapper][58]
     -   [Parameters][59]
 -   [createApiJsonWrapper][60]
     -   [Parameters][61]
@@ -120,18 +120,18 @@ A basic POJO encapsulating sent message attributes
 
 ### Parameters
 
--   `options` **[Object][64]**
-    -   `options.md5OfMessageBody` **[string][65]**
-    -   `options.messageId` **[string][65]**
-    -   `options.md5OfMessageAttributes` **[string][65]**
-    -   `options.sequenceNumber` **[number][66]**
+-   `options` **[Object][64]** 
+    -   `options.md5OfMessageBody` **[string][65]** 
+    -   `options.messageId` **[string][65]** 
+    -   `options.md5OfMessageAttributes` **[string][65]** 
+    -   `options.sequenceNumber` **[number][66]** 
 
 ### Properties
 
--   `md5OfMessageBody` **[string][65]**
--   `messageId` **[string][65]**
--   `md5OfMessageAttributes` **[string][65]**
--   `sequenceNumber` **[number][66]**
+-   `md5OfMessageBody` **[string][65]** 
+-   `messageId` **[string][65]** 
+-   `md5OfMessageAttributes` **[string][65]** 
+-   `sequenceNumber` **[number][66]** 
 
 ## SqsClient
 
@@ -184,24 +184,24 @@ The different types of events that can occur
 
 ### Properties
 
--   `cloudfront` **[string][65]**
--   `awsConfig` **[string][65]**
--   `codeCommit` **[string][65]**
--   `apiGatewayAuthorizer` **[string][65]**
--   `cloudFormation` **[string][65]**
--   `ses` **[string][65]**
--   `apiGatewayAwsProxy` **[string][65]**
--   `scheduledEvent` **[string][65]**
--   `cloudWatchLogs` **[string][65]**
--   `sns` **[string][65]**
--   `dynamoDb` **[string][65]**
--   `kinesisFirehose` **[string][65]**
--   `cognitoSyncTrigger` **[string][65]**
--   `kinesis` **[string][65]**
--   `s3` **[string][65]**
--   `mobileBackend` **[string][65]**
--   `sqs` **[string][65]**
--   `lambda` **[string][65]**
+-   `cloudfront` **[string][65]** 
+-   `awsConfig` **[string][65]** 
+-   `codeCommit` **[string][65]** 
+-   `apiGatewayAuthorizer` **[string][65]** 
+-   `cloudFormation` **[string][65]** 
+-   `ses` **[string][65]** 
+-   `apiGatewayAwsProxy` **[string][65]** 
+-   `scheduledEvent` **[string][65]** 
+-   `cloudWatchLogs` **[string][65]** 
+-   `sns` **[string][65]** 
+-   `dynamoDb` **[string][65]** 
+-   `kinesisFirehose` **[string][65]** 
+-   `cognitoSyncTrigger` **[string][65]** 
+-   `kinesis` **[string][65]** 
+-   `s3` **[string][65]** 
+-   `mobileBackend` **[string][65]** 
+-   `sqs` **[string][65]** 
+-   `lambda` **[string][65]** 
 -   `isValid` **[Function][68]** Return true if provided value is a valid event type, false otherwise
 
 ## parser
@@ -303,12 +303,12 @@ The entry point for creating handlers
 ### Parameters
 
 -   `options` **[Object][64]** See below
-    -   `options.parser` **[parser][71]** A function to parse the incoming lambda event (optional, default `(data)=>data`)
-    -   `options.serializer` **[serializer][72]** A function to serialize the response from the lambda invocation (optional, default `(data)=>data`)
+    -   `options.parser` **[parser][71]?** An optional function to parse the incoming lambda event
+    -   `options.serializer` **[serializer][72]?** An optional function to serialize the response from the lambda invocation
     -   `options.configurationRequests` **[Array][74]&lt;ConfigurationRequest>** An array of configuration requests to be fulfilled before each invocation of the handler (optional, default `[]`)
     -   `options.createContainer` **[createContainer][75]** A factory function that will return all needed side effect dependencies. Eg. Http (optional, default `()=>({})`)
     -   `options.createCache` **[createCache][76]** An instance of cacheManager. Will be used to cache configuration. (optional, default `defaultCache`)
-    -   `options.createWrapper` **[createWrapper][77]** A factory function that will return the processor wrapped in additional functionality (optional, default `createBasicWrapper`)
+    -   `options.createWrapper` **[createWrapper][77]** A factory function that will return the processor wrapped in additional functionality (optional, default `createDefaultWrapper`)
     -   `options.createProcessor` **[createProcessor][78]** A factory function that will return the main handler for the lambda
     -   `options.t` **any?** For use with AVA during testing
 
@@ -403,9 +403,9 @@ A json response with statusCode
 
 ### Parameters
 
--   `$0` **[Object][64]**
-    -   `$0.statusCode`
-    -   `$0.body`
+-   `$0` **[Object][64]** 
+    -   `$0.statusCode`  
+    -   `$0.body`  
 -   `statusCode` **[number][66]** The statusCode of the response
 -   `body` **[Object][64]** The json object body of the response
 
@@ -416,18 +416,19 @@ A serializer for handling statusCode and json object body responses
 ### Parameters
 
 -   `response` **[MultiStatusJsonResponse][82]** The result from processor
+-   `ctx` **[AppContext][70]** The context of the current execution
 
-Returns **[Object][64]** Api gateway compatible response with statusCode, body, and contentType set appropriately
+Returns **[Object][64]** Api gateway compatible response with statusCode, body, and headers set appropriately
 
-## createBasicWrapper
+## createDefaultWrapper
 
 A wrapper that handles top level logging/parsing/serialization orchestration
 
 ### Parameters
 
 -   `ctx` **[object][64]** Internal use
--   `parser` **[parser][71]** The parser provided through `createHandler`
--   `serializer` **[serializer][72]** The serializer provided through `createHandler`
+-   `parser`   (optional, default `event=>event`)
+-   `serializer`   (optional, default `data=>data`)
 
 Returns **[wrapper][73]** The wrapped processor
 
@@ -443,7 +444,8 @@ The response from the process needs to be in the form:
 ### Parameters
 
 -   `ctx` **[object][64]** Internal use
--   `parser` **[parser][71]** The parser provided through `createHandler`
+-   `parser`   (optional, default `event=>event`)
+-   `serializer`   (optional, default `multiStatusCodeJsonSerializer`)
 
 Returns **[wrapper][73]** The wrapped processor
 
@@ -571,11 +573,11 @@ Returns **[Object][64]** The file contents parsed as JSON
 
 [57]: #parameters-24
 
-[58]: #createbasicwrapper
+[58]: #createdefaultwrapper
 
 [59]: #parameters-25
 
-[60]: #createApiJsonWrapper
+[60]: #createapijsonwrapper
 
 [61]: #parameters-26
 
