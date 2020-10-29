@@ -1,4 +1,4 @@
 export const createProcessor = ({ log }) => async (event, context) => {
-  log.info('handled')
+  log.info('Jackalambda')
   return event
 }
