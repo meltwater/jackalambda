@@ -6,9 +6,7 @@ export const createProcessor = ({ log }) => async (event, context) => {
     const error = new Error(
       'Throwing error for demonstration since throwError is true'
     )
-    if (event.body.statusCode) {
-      error.statusCode = event.body.statusCode
-    }
+    error.statusCode = event.body.statusCode
     throw error
   }
 
