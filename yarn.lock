@@ -1402,10 +1402,10 @@
   resolved "https://registry.yarnpkg.com/@kwsites/promise-deferred/-/promise-deferred-1.1.1.tgz#8ace5259254426ccef57f3175bc64ed7095ed919"
   integrity sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==
 
-"@meltwater/aws-configuration-fetcher@^1.0.0-rc.0":
-  version "1.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@meltwater/aws-configuration-fetcher/-/aws-configuration-fetcher-1.0.0-rc.0.tgz#4b94f8d5ae5fb22cfbfa2ad5aedaac317e0cbf4f"
-  integrity sha512-QlLhbLk4nDEIIfGuDOBTaNBDdQche4CXCMM0/yVprP+srCKSzbVw9rEGet6YLu+NTgME1A2ne+OI1rlG0v35Rw==
+"@meltwater/aws-configuration-fetcher@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@meltwater/aws-configuration-fetcher/-/aws-configuration-fetcher-1.0.0.tgz#e445a8e99ebef5c82ac78c6592d762d23e3b397c"
+  integrity sha512-V14DmQ40/PCH+QFIx2edOUoAwpbbaH8K6CdpBJfCpLBz3pZAdDfSTdtRMgofZcx2EuYT3o2OJKOMHOHrS9uE1g==
   dependencies:
     argument-contracts "^1.1.0"
     aws-xray-sdk-core "^3.2.0"

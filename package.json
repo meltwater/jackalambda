@@ -57,7 +57,7 @@
     "aws-sdk": "2.712.0"
   },
   "dependencies": {
-    "@meltwater/aws-configuration-fetcher": "^1.0.0-rc.0",
+    "@meltwater/aws-configuration-fetcher": "^1.0.0",
     "@meltwater/mlabs-logger": "^6.0.0",
     "argument-contracts": "^1.1.0",
     "aws-xray-sdk": "^3.2.0",
