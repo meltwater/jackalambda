@@ -5,11 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## 1.2.0 / 2020-10-30
+
+### Changed
+
+- Normalized all logging.
+
 ## 1.1.1 / 2020-10-30
 
 ### Fix
 
-- DynamodbDocumentClient now passes table name provided in constructor for get/put methods
+- DynamodbDocumentClient now passes table name from in constructor to client methods.
 
 ## 1.1.0 / 2020-10-29
 
