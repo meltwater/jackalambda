@@ -102,7 +102,7 @@ Invoke the lambda
 
 #### Parameters
 
--   `input` **[Object][66]** The object to pass as the Payload for lambdaClient.invoke
+-   `payload` **[Object][66]** The object to pass as the Payload for lambdaClient.invoke
 -   `params` **[Object][66]** Additional properties to the lambdaClient.invoke method (optional, default `{}`)
 
 Returns **any** The JSON parsed response from lambdaClient.invoke
@@ -169,7 +169,7 @@ Publish a message to SQS that will be JSON
 
 #### Parameters
 
--   `input` **[Object][66]** The message body to be sent to SQS
+-   `body` **[Object][66]** The message body to be sent to SQS
 -   `params` **[Object][66]** Additional properties to the sqsClient.sendMessage method (optional, default `{}`)
 
 Returns **[SqsSendMessageResponse][69]** Information about the message sent
