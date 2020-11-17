@@ -1,5 +1,6 @@
 # Jackalambda
 
+[![npm](https://img.shields.io/npm/v/@meltwater/jackalambda.svg)](https://www.npmjs.com/package/@meltwater/jackalambda)
 [![Drone](https://drone.meltwater.io/api/badges/meltwater/jackalambda/status.svg?branch=master)](https://drone.meltwater.io/meltwater/jackalambda)
 ![main](https://github.com/meltwater/jackalambda/workflows/main/badge.svg)
 
@@ -225,7 +226,18 @@ To submit a patch:
 
 ## License
 
-This Serverless project is Copyright (c) 2019-2020 Meltwater Group.
+The source code for this npm package is
+licensed under the Apache License, Version 2.0 (the "License");
+you may not use this source code except in compliance with the License.
+You may obtain a copy of the License at
+
+   https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 ## Warranty
 
