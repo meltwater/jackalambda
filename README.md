@@ -1,6 +1,7 @@
 # Jackalambda
 
 [![Drone](https://drone.meltwater.io/api/badges/meltwater/jackalambda/status.svg?branch=master)](https://drone.meltwater.io/meltwater/jackalambda)
+![main](https://github.com/meltwater/jackalambda/workflows/main/badge.svg)
 
 Mythical lambda creature.
 
