@@ -1,6 +1,8 @@
 # Jackalambda
 
+[![npm](https://img.shields.io/npm/v/@meltwater/jackalambda.svg)](https://www.npmjs.com/package/@meltwater/jackalambda)
 [![Drone](https://drone.meltwater.io/api/badges/meltwater/jackalambda/status.svg?branch=master)](https://drone.meltwater.io/meltwater/jackalambda)
+![main](https://github.com/meltwater/jackalambda/workflows/main/badge.svg)
 
 Mythical lambda creature.
 
@@ -224,7 +226,7 @@ To submit a patch:
 
 ## License
 
-This Serverless project is Copyright (c) 2019-2020 Meltwater Group.
+This npm package is licensed under the MIT license.
 
 ## Warranty
 

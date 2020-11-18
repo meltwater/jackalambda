@@ -11,7 +11,7 @@
   "homepage": "https://github.com/meltwater/jackalambda",
   "bugs": "https://github.com/meltwater/jackalambda/issues",
   "repository": "meltwater/jackalambda",
-  "license": "SEE LICENSE IN LICENSE.txt",
+  "license": "MIT",
   "author": {
     "name": "Team Jackalope",
     "email": "evan.sosenko@meltwater.com"
@@ -57,7 +57,7 @@
     "aws-sdk": "2.712.0"
   },
   "dependencies": {
-    "@meltwater/aws-configuration-fetcher": "^1.0.0",
+    "@meltwater/aws-configuration-fetcher": "^1.1.0",
     "@meltwater/mlabs-logger": "^6.0.0",
     "argument-contracts": "^1.1.0",
     "aws-xray-sdk": "^3.2.0",
