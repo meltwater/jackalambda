@@ -168,7 +168,7 @@ steps:
       webhook:
         from_secret: slack_webhook
       template: |
-        :drone-{{build.status}}: *<{{build.link}}|{{uppercasefirst build.event}} {{build.number}}>* on branch *<https://github.com/{{repo.owner}}/{{repo.name}}/tree/{{build.branch}}|{{build.branch}}>* completed in {{since build.started}}
+        :drone-{{build.status}}: *<{{build.link}}|{{uppercasefirst build.event}} {{build.number}}>* to {{build.deployTo}} on branch *<https://github.com/{{repo.owner}}/{{repo.name}}/tree/{{build.branch}}|{{build.branch}}>* completed in {{since build.started}}
 
         :github: <https://github.com/{{repo.owner}}/{{repo.name}}/commit/{{build.commit}}|{{repo.owner}}/{{repo.name}}#{{truncate build.commit 8}}>
         > {{build.message}} by <https://github.com/{{build.author}}|{{build.author}}>
