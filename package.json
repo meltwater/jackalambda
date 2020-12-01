@@ -59,7 +59,7 @@
     "esm": "^3.2.25"
   },
   "devDependencies": {
-    "@meltwater/examplr": "^4.2.0",
+    "@meltwater/examplr": "^5.0.0",
     "ava": "^3.3.0",
     "aws-sdk": "2.712.0",
     "del-cli": "^3.0.0",
