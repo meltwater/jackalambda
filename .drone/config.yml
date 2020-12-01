@@ -120,8 +120,6 @@ steps:
         from_secret: aws_assume_role_arn_staging
       AWS_ASSUME_ROLE_EXTERNAL_ID_STAGING:
         from_secret: aws_assume_role_external_id_staging
-      OUTPUT_BUCKET_PRODUCTION:
-        from_secret: output_bucket_production
       AWS_ASSUME_ROLE_ARN_PRODUCTION:
         from_secret: aws_assume_role_arn_production
       AWS_ASSUME_ROLE_EXTERNAL_ID_PRODUCTION:
