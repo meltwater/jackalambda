@@ -45,7 +45,7 @@
     "example:inspect:watch": "nodemon --exec node --inspect examples",
     "offline": "serverless offline",
     "offline:watch": "nodemon node_modules/.bin/serverless offline",
-    "pretty": "prettier --ignore-path .gitignore --write '**/*.(js|json|graphql)'",
+    "pretty": "prettier --ignore-path .gitignore --write '**/*.(js|json|graphql|md)'",
     "format": "npm-run-all --serial pretty format:*",
     "format:ts": "eslint --ignore-path .gitignore --fix --ext .js .",
     "report": "nyc report"
