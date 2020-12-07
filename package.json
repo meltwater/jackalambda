@@ -26,6 +26,7 @@
   ],
   "scripts": {
     "docs": "documentation build ./index.js -f md > ./docs/README.md",
+    "postdocs": "npm-run-all format",
     "test": "nyc ava",
     "pretest": "npm-run-all lint",
     "posttest": "serverless package",
