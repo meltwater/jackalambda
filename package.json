@@ -54,7 +54,7 @@
     "node": ">=12.13.0"
   },
   "resolutions": {
-    "aws-sdk": "2.712.0"
+    "aws-sdk": "2.771.0"
   },
   "dependencies": {
     "@meltwater/aws-configuration-fetcher": "^1.1.0",
@@ -66,9 +66,9 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
-    "@meltwater/examplr": "^4.2.0",
+    "@meltwater/examplr": "^5.0.0",
     "ava": "^3.3.0",
-    "aws-sdk": "2.712.0",
+    "aws-sdk": "2.771.0",
     "del-cli": "^3.0.0",
     "documentation": "^13.0.2",
     "eslint": "^7.4.0",
@@ -77,7 +77,7 @@
     "eslint-plugin-jsdoc": "^30.6.2",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-standard": "^5.0.0",
     "nodemon": "^2.0.1",
     "npm-run-all": "^4.1.2",
     "nyc": "^15.0.0",
