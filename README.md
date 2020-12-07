@@ -23,21 +23,21 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
 - [Keep a CHANGELOG].
 - Consistent coding with [EditorConfig].
 
-[AVA]: https://github.com/avajs/ava
-[AWS Lambda]: https://aws.amazon.com/lambda/
-[Serverless]: https://serverless.com/
-[EditorConfig]: https://editorconfig.org/
+[ava]: https://github.com/avajs/ava
+[aws lambda]: https://aws.amazon.com/lambda/
+[serverless]: https://serverless.com/
+[editorconfig]: https://editorconfig.org/
 [esm]: https://www.npmjs.com/package/esm
-[Drone]: https://drone.io/
-[Istanbul]: https://istanbul.js.org/
-[JavaScript Standard Style]: https://standardjs.com/
-[Keep a CHANGELOG]: https://keepachangelog.com/
-[Node.js]: https://nodejs.org/
-[Prettier]: https://prettier.io/
+[drone]: https://drone.io/
+[istanbul]: https://istanbul.js.org/
+[javascript standard style]: https://standardjs.com/
+[keep a changelog]: https://keepachangelog.com/
+[node.js]: https://nodejs.org/
+[prettier]: https://prettier.io/
 [examplr]: https://github.com/meltwater/node-examplr
 [npm]: https://www.npmjs.com/
 [nyc]: https://github.com/istanbuljs/nyc
-[Yarn]: https://yarnpkg.com/
+[yarn]: https://yarnpkg.com/
 
 ### Bootstrapping a new project
 
@@ -55,8 +55,7 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
    ```
    $ ./makenew.sh
    ```
-   This will replace the boilerplate, delete itself,
-   remove the git remote, remove upstream tags,
+   This will replace the boilerplate, delete itself, remove the git remote, remove upstream tags,
    and stage changes for commit.
 4. Create the required Drone secrets with
    ```
@@ -69,8 +68,7 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
    $ git remote add origin git@github.com:<user>/<new-node-lib>.git
    $ git push -u origin master
    ```
-6. Ensure the Drone build passes,
-   then publish the initial version of the package with
+6. Ensure the Drone build passes, then publish the initial version of the package with
    ```
    $ nvm install
    $ yarn install
@@ -83,8 +81,8 @@ Bootstrap a new Node.js Serverless project in five minutes or less.
 
 ### Updating from this skeleton
 
-If you want to pull in future updates from this skeleton,
-you can fetch and merge in changes from this repository.
+If you want to pull in future updates from this skeleton, you can fetch and merge in changes from
+this repository.
 
 Add this as a new remote with
 
@@ -101,11 +99,10 @@ $ git merge upstream/master
 
 #### Changelog for this skeleton
 
-Note that `CHANGELOG.md` is just a template for this skeleton.
-The actual changes for this project are documented in the commit history
-and summarized under [Releases].
+Note that `CHANGELOG.md` is just a template for this skeleton. The actual changes for this project
+are documented in the commit history and summarized under [Releases].
 
-[Releases]: https://github.com/meltwater/makenew-serverless-nodejs/releases
+[releases]: https://github.com/meltwater/makenew-serverless-nodejs/releases
 
 ## Installation
 
@@ -122,7 +119,7 @@ $ yarn add @meltwater/makenew-serverless-nodejs
 ```
 
 [npm]: https://www.npmjs.com/
-[Yarn]: https://yarnpkg.com/
+[yarn]: https://yarnpkg.com/
 
 ## Development and Testing
 
@@ -142,9 +139,8 @@ $ yarn run offline
 $ yarn run test:watch
 ```
 
-Primary development tasks are defined under `scripts` in `package.json`
-and available via `yarn run`.
-View them with
+Primary development tasks are defined under `scripts` in `package.json` and available via
+`yarn run`. View them with
 
 ```
 $ yarn run
@@ -152,8 +148,7 @@ $ yarn run
 
 ### Source code
 
-The [source code] is hosted on GitHub.
-Clone the project with
+The [source code] is hosted on GitHub. Clone the project with
 
 ```
 $ git clone git@github.com:meltwater/makenew-serverless-nodejs.git
@@ -165,8 +160,8 @@ $ git clone git@github.com:meltwater/makenew-serverless-nodejs.git
 
 You will need [Node.js] with [npm], [Yarn], and a [Node.js debugging] client.
 
-Be sure that all commands run under the correct Node version, e.g.,
-if using [nvm], install the correct version with
+Be sure that all commands run under the correct Node version, e.g., if using [nvm], install the
+correct version with
 
 ```
 $ nvm install
@@ -184,8 +179,8 @@ Install the development dependencies with
 $ yarn install
 ```
 
-[Node.js]: https://nodejs.org/
-[Node.js debugging]: https://nodejs.org/en/docs/guides/debugging-getting-started/
+[node.js]: https://nodejs.org/
+[node.js debugging]: https://nodejs.org/en/docs/guides/debugging-getting-started/
 [npm]: https://www.npmjs.com/
 [nvm]: https://github.com/creationix/nvm
 
@@ -193,18 +188,16 @@ $ yarn install
 
 _Drone should already be configured: this section is for reference only._
 
-The following secrets must be set on [Drone].
-These may be set manually or by running the script `./.drone/secrets.sh`.
+The following secrets must be set on [Drone]. These may be set manually or by running the script
+`./.drone/secrets.sh`.
 
-Note the Drone config path must be set to `.drone/config.yml`
-after the repo is activated.
+Note the Drone config path must be set to `.drone/config.yml` after the repo is activated.
 
 ##### npm
 
 - `npm_token_ro`: npm token for installing packages.
 - `npm_token_rw`: npm token for publishing packages.
-- `npm_team`: npm team to grant read-only package access
-  (format `org:team`, optional).
+- `npm_team`: npm team to grant read-only package access (format `org:team`, optional).
 
 ##### Slack
 
@@ -212,8 +205,8 @@ after the repo is activated.
 
 ##### Drone Promotion
 
-When the drone build publishes a new package version it can trigger
-a promotion event on a Drone repo.
+When the drone build publishes a new package version it can trigger a promotion event on a Drone
+repo.
 
 - `drone_server`: Drone server.
 - `drone_token`: Drone token.
@@ -225,12 +218,12 @@ a promotion event on a Drone repo.
 - `aws_assume_role_arn_production`: The AWS role to assume for production.
 - `aws_assume_role_external_id_production`: The external ID for the AWS role for production.
 
-[Drone]: https://drone.meltwater.io/
+[drone]: https://drone.meltwater.io/
 
 ### Publishing
 
-Use the [`npm version`][npm-version] command to release a new version.
-This will push a new git tag which will trigger a CI publish job.
+Use the [`npm version`][npm-version] command to release a new version. This will push a new git tag
+which will trigger a CI publish job.
 
 [npm-version]: https://docs.npmjs.com/cli/version
 
@@ -253,13 +246,11 @@ This Serverless project is Copyright (c) 2019-2020 Meltwater Group.
 
 ## Warranty
 
-This software is provided by the copyright holders and contributors "as is" and
-any express or implied warranties, including, but not limited to, the implied
-warranties of merchantability and fitness for a particular purpose are
-disclaimed. In no event shall the copyright holder or contributors be liable for
-any direct, indirect, incidental, special, exemplary, or consequential damages
-(including, but not limited to, procurement of substitute goods or services;
-loss of use, data, or profits; or business interruption) however caused and on
-any theory of liability, whether in contract, strict liability, or tort
-(including negligence or otherwise) arising in any way out of the use of this
-software, even if advised of the possibility of such damage.
+This software is provided by the copyright holders and contributors "as is" and any express or
+implied warranties, including, but not limited to, the implied warranties of merchantability and
+fitness for a particular purpose are disclaimed. In no event shall the copyright holder or
+contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential
+damages (including, but not limited to, procurement of substitute goods or services; loss of use,
+data, or profits; or business interruption) however caused and on any theory of liability, whether
+in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of
+the use of this software, even if advised of the possibility of such damage.
