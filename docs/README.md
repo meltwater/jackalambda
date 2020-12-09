@@ -10,7 +10,7 @@
     - [Parameters][6]
 - [S3Client][7]
   - [Parameters][8]
-  - [putObjectJson][9]
+  - [uploadJson][9]
     - [Parameters][10]
   - [getObjectJson][11]
     - [Parameters][12]
@@ -132,16 +132,15 @@ A wrapper around AWS.S3 to simplify interactions
   - `options.params` **[Object][68]** Additional parameters to the AWS.S3 constructor 'params'
     property (optional, default `{}`)
 
-### putObjectJson
+### uploadJson
 
-getObject from S3 Bucket
+upload to S3 Bucket
 
 #### Parameters
 
-- `key` **[Object][68]** The key to pass as the Key for s3Client.putObject
-- `body` **[Object][68]** The object to be stringified and passed as the Body for s3Client.putObject
-- `params` **[Object][68]** Additional properties to the s3.putObject method (optional, default
-  `{}`)
+- `key` **[Object][68]** The key to pass as the Key for s3Client.upload
+- `body` **[Object][68]** The object to be stringified and passed as the Body for s3Client.upload
+- `params` **[Object][68]** Additional properties to the s3.upload method (optional, default `{}`)
 
 Returns **[Promise][70]&lt;void>**
 
@@ -524,7 +523,7 @@ Returns **[Object][68]** The file contents parsed as JSON
 [6]: #parameters-2
 [7]: #s3client
 [8]: #parameters-3
-[9]: #putobjectjson
+[9]: #uploadjson
 [10]: #parameters-4
 [11]: #getobjectjson
 [12]: #parameters-5
