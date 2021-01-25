@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/) and this project adheres to
 [Semantic Versioning](https://semver.org/).
 
+## 1.5.0 / 2021-01-25
+
+### Added
+
+- New method `update` to `DynamodbDocumentClient`.
+
 ## 1.4.0 / 2020-11-17
 
 ### Added
