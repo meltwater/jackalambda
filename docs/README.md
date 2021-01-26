@@ -363,6 +363,8 @@ The entry point for creating handlers
     processor wrapped in additional functionality (optional, default `createDefaultWrapper`)
   - `options.createProcessor` **[createProcessor][83]** A factory function that will return the main
     handler for the lambda
+  - `options.loggerOptions` **[Object][68]?** Additional options to pass to the logger (optional,
+    default `{}`)
   - `options.t` **any?** For use with AVA during testing
 
 Returns **[lambdaHandler][84]** A lambda handler
