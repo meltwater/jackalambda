@@ -405,6 +405,7 @@ This parse will handle the following:
 - HTTP method as a string
 - Path parameters as key value pairs, properly decoded from uri
 - Query string parameters as multi-value entries. Object&lt;string, Array<string>>
+- Headers as multi-value entries. Object&lt;string, Array<string>>
 
 ### Parameters
 
@@ -425,6 +426,8 @@ Parse an HTTP Lambda event
     name, value pairs
   - `options.queryStringParameters` **[Object][68]&lt;[string][69], [Array][79]&lt;[string][69]>>**
     An object of parameter name, array of values pairs
+  - `options.headers` **[Object][68]&lt;[string][69], [Array][79]&lt;[string][69]>>** An object of
+    header name, array of values pairs
 
 ### Properties
 
@@ -434,6 +437,8 @@ Parse an HTTP Lambda event
   value pairs
 - `queryStringParameters` **[Object][68]&lt;[string][69], [Array][79]&lt;[string][69]>>** An object
   of parameter name, array of values pairs
+- `headers` **[Object][68]&lt;[string][69], [Array][79]&lt;[string][69]>>** An object of header
+  name, array of values pairs
 
 ## parseJsonMonoSqsEvent
 
