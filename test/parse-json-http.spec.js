@@ -47,7 +47,20 @@ test('should successfully parse when there are no headers parameters', async (t)
 
   const result = parseJsonHttpEvent(updatedEvent)
 
-  t.snapshot(result, 'No query string parameters Event')
+  t.snapshot(result, 'No headers Event')
+})
+
+test('should successfully parse when there is no requestContext', async (t) => {
+  const event = await getJsonFixture('http-event.json')
+
+  const updatedEvent = {
+    ...event,
+    requestContext: null
+  }
+
+  const result = parseJsonHttpEvent(updatedEvent)
+
+  t.snapshot(result, 'No request context Event')
 })
 
 test('should successfully parse PUT http event', async (t) => {

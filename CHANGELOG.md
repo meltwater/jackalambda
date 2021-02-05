@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/) and this 
 ### Added
 
 - New property `headers` to `HttpEvent`.
+- New property `requestContext` to `HttpEvent`.
 
 ## 1.6.0 / 2021-01-24
 
