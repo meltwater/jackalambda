@@ -407,6 +407,7 @@ This parse will handle the following:
 - Query string parameters as multi-value entries. Object&lt;string, Array<string>>
 - Headers as multi-value entries. Object&lt;string, Array<string>>
 - Request context
+- Cookies
 
 ### Parameters
 
@@ -427,6 +428,7 @@ Parse an HTTP Lambda event
   - `$0.queryStringParameters`
   - `$0.headers`
   - `$0.requestContext`
+  - `$0.cookies`
 - `options` **[Object][68]** See below
   - `options.body` **[Object][68]** The body of the event
   - `options.httpMethod` **[string][69]** String name of the http method
@@ -449,6 +451,7 @@ Parse an HTTP Lambda event
 - `headers` **[Object][68]&lt;[string][69], [Array][79]&lt;[string][69]>>** An object of header
   name, array of values pairs
 - `requestContext` **[Object][68]** The requestContext object
+- `cookies` **[Object][68]&lt;[string][69], [string][69]>** Parsed cookies
 
 ## parseJsonMonoSqsEvent
 

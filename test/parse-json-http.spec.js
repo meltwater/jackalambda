@@ -63,6 +63,19 @@ test('should successfully parse when there is no requestContext', async (t) => {
   t.snapshot(result, 'No request context Event')
 })
 
+test('should successfully parse when there is no cookie header', async (t) => {
+  const event = await getJsonFixture('http-event.json')
+
+  const updatedEvent = {
+    ...event,
+    multiValueHeaders: {}
+  }
+
+  const result = parseJsonHttpEvent(updatedEvent)
+
+  t.snapshot(result, 'No cookie header Event')
+})
+
 test('should successfully parse PUT http event', async (t) => {
   const event = await getJsonFixture('http-event.json')
 
