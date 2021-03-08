@@ -130,7 +130,7 @@ A wrapper around AWS.EventBridge to simplify interactions
 
 ### putEvents
 
-Send events to the event bridge
+Put events to the event bridge
 
 #### Parameters
 
