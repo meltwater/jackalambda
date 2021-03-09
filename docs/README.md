@@ -134,12 +134,11 @@ Put events to the event bridge
 
 #### Parameters
 
-- `events` (optional, default `[]`)
+- `events` **[Object][75]** The event entries to pass to eventbridge.Entries. Entry input structure
+  is identical to the AWS Entry type, except all keys are in lower camelcase, the Detail should be a
+  plain serializable object, and the EventBusName should be omitted. (optional, default `[]`)
 - `params` **[Object][75]** Additional properties to pass to the eventbridge.putEvents method
   (optional, default `{}`)
-- `payload` **[Object][75]** The events to pass to eventbridge.Events. Event input structure is
-  identical to the AWS Event type, except all keys are in lower camelcase, the Detail should be a
-  plain serializable object, and the EventBusName should be omitted.
 
 Returns **[Array][77]&lt;[EventbridgeReponseEntry][78]>** Array of EventbridgeReponseEntry
 
