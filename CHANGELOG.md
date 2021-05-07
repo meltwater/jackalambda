@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/) and this project adheres to
 [Semantic Versioning](https://semver.org/).
 
+## 1.10.0 / 2021-04-22
+
+### Added
+
+- New `SnsClient`.
+
+## 1.9.1 / 2021-03-29
+
+### Fixed
+
+- Syntax for `LOGGER_REDACTION_LISTS`.
+
+## 1.9.0 / 2021-03-29
+
+### Added
+
+- New `LOGGER_REDACTION_LISTS`.
+
 ## 1.8.1 / 2021-03-09
 
 ### Fixed

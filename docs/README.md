@@ -32,55 +32,62 @@
   - [Parameters][28]
   - [publishJson][29]
     - [Parameters][30]
-- [AppContext][31]
+- [SnsSendMessageResponse][31]
   - [Parameters][32]
   - [Properties][33]
-- [EventType][34]
-  - [Properties][35]
-- [parser][36]
-  - [Parameters][37]
-- [processor][38]
+- [SnsClient][34]
+  - [Parameters][35]
+  - [publishJson][36]
+    - [Parameters][37]
+- [AppContext][38]
   - [Parameters][39]
-- [serializer][40]
-  - [Parameters][41]
-- [wrapper][42]
-  - [Parameters][43]
-- [createContainer][44]
-  - [Parameters][45]
-- [createProcessor][46]
-  - [Parameters][47]
-- [createCache][48]
-- [createWrapper][49]
+  - [Properties][40]
+- [EventType][41]
+  - [Properties][42]
+- [parser][43]
+  - [Parameters][44]
+- [processor][45]
+  - [Parameters][46]
+- [serializer][47]
+  - [Parameters][48]
+- [wrapper][49]
   - [Parameters][50]
-- [lambdaHandler][51]
+- [createContainer][51]
   - [Parameters][52]
-- [createHandler][53]
+- [createProcessor][53]
   - [Parameters][54]
-- [createJsonHandler][55]
-  - [Parameters][56]
-- [createApiJsonHandler][57]
-  - [Parameters][58]
-- [parseJsonHttpEvent][59]
-  - [Parameters][60]
-- [HttpEvent][61]
-  - [Parameters][62]
-  - [Properties][63]
-- [parseJsonMonoSqsEvent][64]
+- [createCache][55]
+- [createWrapper][56]
+  - [Parameters][57]
+- [lambdaHandler][58]
+  - [Parameters][59]
+- [createHandler][60]
+  - [Parameters][61]
+- [createJsonHandler][62]
+  - [Parameters][63]
+- [createApiJsonHandler][64]
   - [Parameters][65]
-- [SqsEvent][66]
+- [parseJsonHttpEvent][66]
   - [Parameters][67]
-  - [Properties][68]
-- [MultiStatusJsonResponse][69]
-  - [Parameters][70]
-- [multiStatusCodeJsonSerializer][71]
+- [HttpEvent][68]
+  - [Parameters][69]
+  - [Properties][70]
+- [parseJsonMonoSqsEvent][71]
   - [Parameters][72]
-- [createDefaultWrapper][73]
+- [SqsEvent][73]
   - [Parameters][74]
-- [createApiJsonWrapper][75]
-  - [Parameters][76]
-- [readJson][77]
-  - [Parameters][78]
-- [LOGGER_REDACTION_LISTS][79]
+  - [Properties][75]
+- [MultiStatusJsonResponse][76]
+  - [Parameters][77]
+- [multiStatusCodeJsonSerializer][78]
+  - [Parameters][79]
+- [createDefaultWrapper][80]
+  - [Parameters][81]
+- [createApiJsonWrapper][82]
+  - [Parameters][83]
+- [readJson][84]
+  - [Parameters][85]
+- [LOGGER_REDACTION_LISTS][86]
 
 ## DynamodbDocumentClient
 
@@ -88,16 +95,16 @@ A wrapper around AWS.DynamoDB.DocumentClient to simplify interactions
 
 ### Parameters
 
-- `options` **[Object][80]** See below
-  - `options.table` **[string][81]** The DynamoDB table name
-  - `options.name` **[string][81]** The name to be used for the 'client' property on the logger
+- `options` **[Object][87]** See below
+  - `options.table` **[string][88]** The DynamoDB table name
+  - `options.name` **[string][88]** The name to be used for the 'client' property on the logger
     (optional, default `'dynamodb-document'`)
-  - `options.hashKey` **[string][81]** The DynamoDB table hash key.
-  - `options.rangeKey` **[string][81]** The DynamoDB table range key (if set).
-  - `options.reqId` **[string][81]** The reqId used for distributed log tracing (optional, default
+  - `options.hashKey` **[string][88]** The DynamoDB table hash key.
+  - `options.rangeKey` **[string][88]** The DynamoDB table range key (if set).
+  - `options.reqId` **[string][88]** The reqId used for distributed log tracing (optional, default
     `uuidv4()`)
-  - `options.log` **[Object][80]** A pino compatible logger (optional, default `createLogger()`)
-  - `options.params` **[Object][80]** Additional parameters to the AWS.S3 constructor 'params'
+  - `options.log` **[Object][87]** A pino compatible logger (optional, default `createLogger()`)
+  - `options.params` **[Object][87]** Additional parameters to the AWS.S3 constructor 'params'
     property (optional, default `{}`)
 
 ## EventbridgeReponseEntry
@@ -106,16 +113,16 @@ A basic POJO encapsulating event bridge response entry
 
 ### Parameters
 
-- `options` **[Object][80]**
-  - `options.eventId` **[string][81]**
-  - `options.errorCode` **[string][81]**
-  - `options.errorMessage` **[string][81]**
+- `options` **[Object][87]**
+  - `options.eventId` **[string][88]**
+  - `options.errorCode` **[string][88]**
+  - `options.errorMessage` **[string][88]**
 
 ### Properties
 
-- `eventId` **[string][81]**
-- `errorCode` **[string][81]**
-- `errorMessage` **[string][81]**
+- `eventId` **[string][88]**
+- `errorCode` **[string][88]**
+- `errorMessage` **[string][88]**
 
 ## EventbridgeClient
 
@@ -123,14 +130,14 @@ A wrapper around AWS.EventBridge to simplify interactions
 
 ### Parameters
 
-- `options` **[Object][80]** See below
-  - `options.eventBusName` **[string][81]** The events bus name.
-  - `options.name` **[string][81]** The name to be used for the 'client' property on the logger
+- `options` **[Object][87]** See below
+  - `options.eventBusName` **[string][88]** The events bus name.
+  - `options.name` **[string][88]** The name to be used for the 'client' property on the logger
     (optional, default `'eventbridge'`)
-  - `options.reqId` **[string][81]** The reqId used for distributed log tracing (optional, default
+  - `options.reqId` **[string][88]** The reqId used for distributed log tracing (optional, default
     `uuidv4()`)
-  - `options.log` **[Object][80]** A pino compatible logger (optional, default `createLogger()`)
-  - `options.params` **[Object][80]** Additional parameters to the AWS.EventBridge constructor
+  - `options.log` **[Object][87]** A pino compatible logger (optional, default `createLogger()`)
+  - `options.params` **[Object][87]** Additional parameters to the AWS.EventBridge constructor
     'params' property (optional, default `{}`)
 
 ### putEvents
@@ -139,13 +146,13 @@ Put events to the event bridge
 
 #### Parameters
 
-- `events` **[Object][80]** The event entries to pass to eventbridge.Entries. Entry input structure
+- `events` **[Object][87]** The event entries to pass to eventbridge.Entries. Entry input structure
   is identical to the AWS Entry type, except all keys are in lower camelcase, the Detail should be a
   plain serializable object, and the EventBusName should be omitted. (optional, default `[]`)
-- `params` **[Object][80]** Additional properties to pass to the eventbridge.putEvents method
+- `params` **[Object][87]** Additional properties to pass to the eventbridge.putEvents method
   (optional, default `{}`)
 
-Returns **[Array][82]&lt;[EventbridgeReponseEntry][83]>** Array of EventbridgeReponseEntry
+Returns **[Array][89]&lt;[EventbridgeReponseEntry][90]>** Array of EventbridgeReponseEntry
 
 ## LambdaClient
 
@@ -153,14 +160,14 @@ A wrapper around AWS.Lambda to simplify interactions
 
 ### Parameters
 
-- `options` **[Object][80]** See below
-  - `options.arn` **[string][81]** The ARN of the lambda to invoke
-  - `options.name` **[string][81]** The name to be used for the 'client' property on the logger
+- `options` **[Object][87]** See below
+  - `options.arn` **[string][88]** The ARN of the lambda to invoke
+  - `options.name` **[string][88]** The name to be used for the 'client' property on the logger
     (optional, default `'lambda'`)
-  - `options.reqId` **[string][81]** The reqId used for distributed log tracing (optional, default
+  - `options.reqId` **[string][88]** The reqId used for distributed log tracing (optional, default
     `uuidv4()`)
-  - `options.log` **[Object][80]** A pino compatible logger (optional, default `createLogger()`)
-  - `options.params` **[Object][80]** Additional parameters to the AWS.Lambda constructor 'params'
+  - `options.log` **[Object][87]** A pino compatible logger (optional, default `createLogger()`)
+  - `options.params` **[Object][87]** Additional parameters to the AWS.Lambda constructor 'params'
     property (optional, default `{}`)
 
 ### invokeJson
@@ -169,8 +176,8 @@ Invoke the lambda
 
 #### Parameters
 
-- `payload` **[Object][80]** The object to pass as the Payload for lambdaClient.invoke
-- `params` **[Object][80]** Additional properties to the lambdaClient.invoke method (optional,
+- `payload` **[Object][87]** The object to pass as the Payload for lambdaClient.invoke
+- `params` **[Object][87]** Additional properties to the lambdaClient.invoke method (optional,
   default `{}`)
 
 Returns **any** The JSON parsed response from lambdaClient.invoke
@@ -181,14 +188,14 @@ A wrapper around AWS.S3 to simplify interactions
 
 ### Parameters
 
-- `options` **[Object][80]** See below
-  - `options.bucket` **[string][81]** The s3 Bucket
-  - `options.name` **[string][81]** The name to be used for the 'client' property on the logger
+- `options` **[Object][87]** See below
+  - `options.bucket` **[string][88]** The s3 Bucket
+  - `options.name` **[string][88]** The name to be used for the 'client' property on the logger
     (optional, default `'s3'`)
-  - `options.reqId` **[string][81]** The reqId used for distributed log tracing (optional, default
+  - `options.reqId` **[string][88]** The reqId used for distributed log tracing (optional, default
     `uuidv4()`)
-  - `options.log` **[Object][80]** A pino compatible logger (optional, default `createLogger()`)
-  - `options.params` **[Object][80]** Additional parameters to the AWS.S3 constructor 'params'
+  - `options.log` **[Object][87]** A pino compatible logger (optional, default `createLogger()`)
+  - `options.params` **[Object][87]** Additional parameters to the AWS.S3 constructor 'params'
     property (optional, default `{}`)
 
 ### upload
@@ -197,11 +204,11 @@ upload to S3 Bucket
 
 #### Parameters
 
-- `key` **[Object][80]** The key to pass as the Key for s3Client.upload
-- `body` **[Object][80]** The object passed as the Body for s3Client.upload
-- `params` **[Object][80]** Additional properties to the s3.upload method (optional, default `{}`)
+- `key` **[Object][87]** The key to pass as the Key for s3Client.upload
+- `body` **[Object][87]** The object passed as the Body for s3Client.upload
+- `params` **[Object][87]** Additional properties to the s3.upload method (optional, default `{}`)
 
-Returns **[Promise][84]&lt;void>**
+Returns **[Promise][91]&lt;void>**
 
 ### uploadJson
 
@@ -209,11 +216,11 @@ upload JSON to S3 Bucket
 
 #### Parameters
 
-- `key` **[Object][80]** The key to pass to this.upload
-- `body` **[Object][80]** The object to be stringified and passed to this.upload
-- `params` **[Object][80]** Additional properties to pass to this.upload (optional, default `{}`)
+- `key` **[Object][87]** The key to pass to this.upload
+- `body` **[Object][87]** The object to be stringified and passed to this.upload
+- `params` **[Object][87]** Additional properties to pass to this.upload (optional, default `{}`)
 
-Returns **[Promise][84]&lt;void>**
+Returns **[Promise][91]&lt;void>**
 
 ### getObject
 
@@ -221,8 +228,8 @@ getObject from S3 Bucket
 
 #### Parameters
 
-- `key` **[Object][80]** The key to pass as the Key for s3Client.getObject
-- `params` **[Object][80]** Additional properties to the s3.getObject method (optional, default
+- `key` **[Object][87]** The key to pass as the Key for s3Client.getObject
+- `params` **[Object][87]** Additional properties to the s3.getObject method (optional, default
   `{}`)
 
 Returns **any** The Body of response from s3.getObject
@@ -233,8 +240,8 @@ getObjectJson from S3 Bucket
 
 #### Parameters
 
-- `key` **[Object][80]** The key to pass to this.getObject
-- `params` **[Object][80]** Additional properties to pass to this.getObject (optional, default `{}`)
+- `key` **[Object][87]** The key to pass to this.getObject
+- `params` **[Object][87]** Additional properties to pass to this.getObject (optional, default `{}`)
 
 Returns **any** The JSON response from s3.getObject
 
@@ -244,18 +251,18 @@ A basic POJO encapsulating sent message attributes
 
 ### Parameters
 
-- `options` **[Object][80]**
-  - `options.md5OfMessageBody` **[string][81]**
-  - `options.messageId` **[string][81]**
-  - `options.md5OfMessageAttributes` **[string][81]**
-  - `options.sequenceNumber` **[number][85]**
+- `options` **[Object][87]**
+  - `options.md5OfMessageBody` **[string][88]**
+  - `options.messageId` **[string][88]**
+  - `options.md5OfMessageAttributes` **[string][88]**
+  - `options.sequenceNumber` **[number][92]**
 
 ### Properties
 
-- `md5OfMessageBody` **[string][81]**
-- `messageId` **[string][81]**
-- `md5OfMessageAttributes` **[string][81]**
-- `sequenceNumber` **[number][85]**
+- `md5OfMessageBody` **[string][88]**
+- `messageId` **[string][88]**
+- `md5OfMessageAttributes` **[string][88]**
+- `sequenceNumber` **[number][92]**
 
 ## SqsClient
 
@@ -263,14 +270,14 @@ A wrapper around AWS.SQS to simplify interactions
 
 ### Parameters
 
-- `options` **[Object][80]** See below
-  - `options.queueUrl` **[string][81]** The URL for the queue
-  - `options.name` **[string][81]** The name to be used for the 'client' property on the logger
+- `options` **[Object][87]** See below
+  - `options.queueUrl` **[string][88]** The URL for the queue
+  - `options.name` **[string][88]** The name to be used for the 'client' property on the logger
     (optional, default `'sqs'`)
-  - `options.reqId` **[string][81]** The reqId used for distributed log tracing (optional, default
+  - `options.reqId` **[string][88]** The reqId used for distributed log tracing (optional, default
     `uuidv4()`)
-  - `options.log` **[Object][80]** A pino compatible logger (optional, default `createLogger()`)
-  - `options.params` **[Object][80]** Additional parameters to the AWS.Lambda constructor 'params'
+  - `options.log` **[Object][87]** A pino compatible logger (optional, default `createLogger()`)
+  - `options.params` **[Object][87]** Additional parameters to the AWS.Lambda constructor 'params'
     property (optional, default `{}`)
 
 ### publishJson
@@ -279,11 +286,54 @@ Publish a message to SQS that will be JSON
 
 #### Parameters
 
-- `body` **[Object][80]** The message body to be sent to SQS
-- `params` **[Object][80]** Additional properties to the sqsClient.sendMessage method (optional,
+- `body` **[Object][87]** The message body to be sent to SQS
+- `params` **[Object][87]** Additional properties to the sqsClient.sendMessage method (optional,
   default `{}`)
 
-Returns **[SqsSendMessageResponse][86]** Information about the message sent
+Returns **[SqsSendMessageResponse][93]** Information about the message sent
+
+## SnsSendMessageResponse
+
+A basic POJO encapsulating sent message attributes
+
+### Parameters
+
+- `options` **[Object][87]**
+  - `options.messageId` **[string][88]**
+  - `options.sequenceNumber` **[number][92]**
+
+### Properties
+
+- `messageId` **[string][88]**
+- `sequenceNumber` **[number][92]**
+
+## SnsClient
+
+A wrapper around AWS.SNS to simplify interactions
+
+### Parameters
+
+- `options` **[Object][87]** See below
+  - `options.topicArn` **[string][88]** The ARN for the topic
+  - `options.name` **[string][88]** The name to be used for the 'client' property on the logger
+    (optional, default `'sns'`)
+  - `options.reqId` **[string][88]** The reqId used for distributed log tracing (optional, default
+    `uuidv4()`)
+  - `options.log` **[Object][87]** A pino compatible logger (optional, default `createLogger()`)
+  - `options.params` **[Object][87]** Additional parameters to the AWS.Lambda constructor 'params'
+    property (optional, default `{}`)
+
+### publishJson
+
+Publish a message to SNS that will be JSON
+
+#### Parameters
+
+- `body` **[Object][87]** The message body to be sent to SNS
+- `params` **[Object][87]** Additional properties to the SnsClient.sendMessage method (optional,
+  default `{}`)
+
+Returns **[SnsSendMessageResponse][94]** Information about the message sent
 
 ## AppContext
 
@@ -291,20 +341,20 @@ The runtime context
 
 ### Parameters
 
-- `options` **[Object][80]** See below
-  - `options.awsRequestId` **[string][81]** The awsRequestId for the current invocation
-  - `options.eventType` **[string][81]** A string representing the type of event
-  - `options.functionName` **[string][81]** The name of the lambda function from lambda context
-  - `options.log` **[object][80]** A pino compatible logger
-  - `options.reqId` **[string][81]** The distributed tracing id for this invocation
+- `options` **[Object][87]** See below
+  - `options.awsRequestId` **[string][88]** The awsRequestId for the current invocation
+  - `options.eventType` **[string][88]** A string representing the type of event
+  - `options.functionName` **[string][88]** The name of the lambda function from lambda context
+  - `options.log` **[object][87]** A pino compatible logger
+  - `options.reqId` **[string][88]** The distributed tracing id for this invocation
 
 ### Properties
 
-- `awsRequestId` **[string][81]** The awsRequestId for the current invocation
-- `eventType` **[string][81]** A string representing the type of event
-- `functionName` **[string][81]** The name of the lambda function from lambda context
-- `log` **[object][80]** A pino compatible logger
-- `reqId` **[string][81]** The distributed tracing id for this invocation
+- `awsRequestId` **[string][88]** The awsRequestId for the current invocation
+- `eventType` **[string][88]** A string representing the type of event
+- `functionName` **[string][88]** The name of the lambda function from lambda context
+- `log` **[object][87]** A pino compatible logger
+- `reqId` **[string][88]** The distributed tracing id for this invocation
 
 ## EventType
 
@@ -312,40 +362,40 @@ The different types of events that can occur
 
 ### Properties
 
-- `cloudfront` **[string][81]**
-- `awsConfig` **[string][81]**
-- `codeCommit` **[string][81]**
-- `apiGatewayAuthorizer` **[string][81]**
-- `cloudFormation` **[string][81]**
-- `ses` **[string][81]**
-- `apiGatewayAwsProxy` **[string][81]**
-- `scheduledEvent` **[string][81]**
-- `cloudWatchLogs` **[string][81]**
-- `sns` **[string][81]**
-- `dynamoDb` **[string][81]**
-- `kinesisFirehose` **[string][81]**
-- `cognitoSyncTrigger` **[string][81]**
-- `kinesis` **[string][81]**
-- `s3` **[string][81]**
-- `mobileBackend` **[string][81]**
-- `sqs` **[string][81]**
-- `lambda` **[string][81]**
-- `isValid` **[Function][87]** Return true if provided value is a valid event type, false otherwise
+- `cloudfront` **[string][88]**
+- `awsConfig` **[string][88]**
+- `codeCommit` **[string][88]**
+- `apiGatewayAuthorizer` **[string][88]**
+- `cloudFormation` **[string][88]**
+- `ses` **[string][88]**
+- `apiGatewayAwsProxy` **[string][88]**
+- `scheduledEvent` **[string][88]**
+- `cloudWatchLogs` **[string][88]**
+- `sns` **[string][88]**
+- `dynamoDb` **[string][88]**
+- `kinesisFirehose` **[string][88]**
+- `cognitoSyncTrigger` **[string][88]**
+- `kinesis` **[string][88]**
+- `s3` **[string][88]**
+- `mobileBackend` **[string][88]**
+- `sqs` **[string][88]**
+- `lambda` **[string][88]**
+- `isValid` **[Function][95]** Return true if provided value is a valid event type, false otherwise
 
 ## parser
 
-Type: [Function][87]
+Type: [Function][95]
 
 ### Parameters
 
-- `event` **[Object][80]** The raw lambda event
-- `context` **[Object][80]** The raw lambda context
+- `event` **[Object][87]** The raw lambda event
+- `context` **[Object][87]** The raw lambda context
 
 Returns **any** The parsed event for the processor
 
 ## processor
 
-Type: [Function][87]
+Type: [Function][95]
 
 ### Parameters
 
@@ -355,7 +405,7 @@ Returns **any** The serialized lambda response
 
 ## serializer
 
-Type: [Function][87]
+Type: [Function][95]
 
 ### Parameters
 
@@ -365,62 +415,62 @@ Returns **any** The serialized lambda response
 
 ## wrapper
 
-Type: [Function][87]
+Type: [Function][95]
 
 ### Parameters
 
-- `response` **[processor][88]** The response from the handler to be serialized for lambda response
+- `response` **[processor][96]** The response from the handler to be serialized for lambda response
 
-Returns **[Function][87]** The processor wrapped in any additional code you may want
+Returns **[Function][95]** The processor wrapped in any additional code you may want
 
 ## createContainer
 
-Type: [Function][87]
+Type: [Function][95]
 
 ### Parameters
 
-- `appContext` **[AppContext][89]** The context for the current execution of the lambda
-- `configuration` **[Object][80]** The configuration object from the passed configurationRequests
+- `appContext` **[AppContext][97]** The context for the current execution of the lambda
+- `configuration` **[Object][87]** The configuration object from the passed configurationRequests
 
-Returns **[Object][80]** All of the side effect dependencies in an object
+Returns **[Object][87]** All of the side effect dependencies in an object
 
 ## createProcessor
 
-Type: [Function][87]
+Type: [Function][95]
 
 ### Parameters
 
-- `appContext` **[AppContext][89]** The context for the current execution of the lambda
-- `container` **[Object][80]** The response from the createContainer invocation
+- `appContext` **[AppContext][97]** The context for the current execution of the lambda
+- `container` **[Object][87]** The response from the createContainer invocation
 
-Returns **[Object][80]** All of the side effect dependencies in an object
+Returns **[Object][87]** All of the side effect dependencies in an object
 
 ## createCache
 
-Type: [Function][87]
+Type: [Function][95]
 
 Returns **cacheManager** An instance of cacheManager
 
 ## createWrapper
 
-Type: [Function][87]
+Type: [Function][95]
 
 ### Parameters
 
-- `appContext` **[AppContext][89]** The context for the current execution of the lambda
-- `parser` **[parser][90]** The parser provided to `createHandler`
-- `serializer` **[serializer][91]** The serializer provided to `createHandler`
+- `appContext` **[AppContext][97]** The context for the current execution of the lambda
+- `parser` **[parser][98]** The parser provided to `createHandler`
+- `serializer` **[serializer][99]** The serializer provided to `createHandler`
 
-Returns **[wrapper][92]** All of the side effect dependencies in an object
+Returns **[wrapper][100]** All of the side effect dependencies in an object
 
 ## lambdaHandler
 
-Type: [Function][87]
+Type: [Function][95]
 
 ### Parameters
 
-- `event` **[object][80]** The raw lambda event
-- `context` **[object][80]** The raw lambda context
+- `event` **[object][87]** The raw lambda event
+- `context` **[object][87]** The raw lambda context
 
 Returns **any** The result of the processor
 
@@ -430,26 +480,26 @@ The entry point for creating handlers
 
 ### Parameters
 
-- `options` **[Object][80]** See below
-  - `options.parser` **[parser][90]?** An optional function to parse the incoming lambda event
-  - `options.serializer` **[serializer][91]?** An optional function to serialize the response from
+- `options` **[Object][87]** See below
+  - `options.parser` **[parser][98]?** An optional function to parse the incoming lambda event
+  - `options.serializer` **[serializer][99]?** An optional function to serialize the response from
     the lambda invocation
-  - `options.configurationRequests` **[Array][82]&lt;ConfigurationRequest>** An array of
+  - `options.configurationRequests` **[Array][89]&lt;ConfigurationRequest>** An array of
     configuration requests to be fulfilled before each invocation of the handler (optional, default
     `[]`)
-  - `options.createContainer` **[createContainer][93]** A factory function that will return all
+  - `options.createContainer` **[createContainer][101]** A factory function that will return all
     needed side effect dependencies. Eg. Http (optional, default `()=>({})`)
-  - `options.createCache` **[createCache][94]** An instance of cacheManager. Will be used to cache
+  - `options.createCache` **[createCache][102]** An instance of cacheManager. Will be used to cache
     configuration. (optional, default `defaultCache`)
-  - `options.createWrapper` **[createWrapper][95]** A factory function that will return the
+  - `options.createWrapper` **[createWrapper][103]** A factory function that will return the
     processor wrapped in additional functionality (optional, default `createDefaultWrapper`)
-  - `options.createProcessor` **[createProcessor][96]** A factory function that will return the main
-    handler for the lambda
-  - `options.loggerOptions` **[Object][80]?** Additional options to pass to the logger (optional,
+  - `options.createProcessor` **[createProcessor][104]** A factory function that will return the
+    main handler for the lambda
+  - `options.loggerOptions` **[Object][87]?** Additional options to pass to the logger (optional,
     default `{}`)
   - `options.t` **any?** For use with AVA during testing
 
-Returns **[lambdaHandler][97]** A lambda handler
+Returns **[lambdaHandler][105]** A lambda handler
 
 ## createJsonHandler
 
@@ -470,9 +520,9 @@ overridden with the multi-status code version.
 
 See the following:
 
-- [createApiJsonWrapper][75]
-- [multiStatusCodeJsonSerializer][71]
-- [MultiStatusJsonResponse][69]
+- [createApiJsonWrapper][82]
+- [multiStatusCodeJsonSerializer][78]
+- [MultiStatusJsonResponse][76]
 
 ### Parameters
 
@@ -493,9 +543,9 @@ This parse will handle the following:
 
 ### Parameters
 
-- `event` **[object][80]** An event from Api Gateway -> Lambda Proxy Integration
+- `event` **[object][87]** An event from Api Gateway -> Lambda Proxy Integration
 
-Returns **[HttpEvent][98]** The parsed event
+Returns **[HttpEvent][106]** The parsed event
 
 ## HttpEvent
 
@@ -503,7 +553,7 @@ Parse an HTTP Lambda event
 
 ### Parameters
 
-- `$0` **[Object][80]**
+- `$0` **[Object][87]**
   - `$0.body`
   - `$0.httpMethod`
   - `$0.pathParameters`
@@ -511,29 +561,29 @@ Parse an HTTP Lambda event
   - `$0.headers`
   - `$0.requestContext`
   - `$0.cookies`
-- `options` **[Object][80]** See below
-  - `options.body` **[Object][80]** The body of the event
-  - `options.httpMethod` **[string][81]** String name of the http method
-  - `options.pathParameters` **[Object][80]&lt;[string][81], [string][81]>** An object of path part
+- `options` **[Object][87]** See below
+  - `options.body` **[Object][87]** The body of the event
+  - `options.httpMethod` **[string][88]** String name of the http method
+  - `options.pathParameters` **[Object][87]&lt;[string][88], [string][88]>** An object of path part
     name, value pairs
-  - `options.queryStringParameters` **[Object][80]&lt;[string][81], [Array][82]&lt;[string][81]>>**
+  - `options.queryStringParameters` **[Object][87]&lt;[string][88], [Array][89]&lt;[string][88]>>**
     An object of parameter name, array of values pairs
-  - `options.headers` **[Object][80]&lt;[string][81], [Array][82]&lt;[string][81]>>** An object of
+  - `options.headers` **[Object][87]&lt;[string][88], [Array][89]&lt;[string][88]>>** An object of
     header name, array of values pairs
-- `requestContext` **[Object][80]** The requestContext object
+- `requestContext` **[Object][87]** The requestContext object
 
 ### Properties
 
-- `body` **[Object][80]** The body of the event
-- `httpMethod` **[string][81]** String name of the http method
-- `pathParameters` **[Object][80]&lt;[string][81], [string][81]>** An object of path part name,
+- `body` **[Object][87]** The body of the event
+- `httpMethod` **[string][88]** String name of the http method
+- `pathParameters` **[Object][87]&lt;[string][88], [string][88]>** An object of path part name,
   value pairs
-- `queryStringParameters` **[Object][80]&lt;[string][81], [Array][82]&lt;[string][81]>>** An object
+- `queryStringParameters` **[Object][87]&lt;[string][88], [Array][89]&lt;[string][88]>>** An object
   of parameter name, array of values pairs
-- `headers` **[Object][80]&lt;[string][81], [Array][82]&lt;[string][81]>>** An object of header
+- `headers` **[Object][87]&lt;[string][88], [Array][89]&lt;[string][88]>>** An object of header
   name, array of values pairs
-- `requestContext` **[Object][80]** The requestContext object
-- `cookies` **[Object][80]&lt;[string][81], [string][81]>** Parsed cookies
+- `requestContext` **[Object][87]** The requestContext object
+- `cookies` **[Object][87]&lt;[string][88], [string][88]>** Parsed cookies
 
 ## parseJsonMonoSqsEvent
 
@@ -541,9 +591,9 @@ Parse a Lambda SQS event
 
 ### Parameters
 
-- `sqsEvent` **[Object][80]** A Lambda SQS event
+- `sqsEvent` **[Object][87]** A Lambda SQS event
 
-Returns **[SqsEvent][99]** The parsed SQS event
+Returns **[SqsEvent][107]** The parsed SQS event
 
 ## SqsEvent
 
@@ -551,12 +601,12 @@ An SQS Event
 
 ### Parameters
 
-- `options` **[Object][80]** See below
-  - `options.body` **[Object][80]** The body of the SQS event
+- `options` **[Object][87]** See below
+  - `options.body` **[Object][87]** The body of the SQS event
 
 ### Properties
 
-- `body` **[Object][80]** The body of the event
+- `body` **[Object][87]** The body of the event
 
 ## MultiStatusJsonResponse
 
@@ -564,11 +614,11 @@ A json response with statusCode
 
 ### Parameters
 
-- `$0` **[Object][80]**
+- `$0` **[Object][87]**
   - `$0.statusCode`
   - `$0.body`
-- `statusCode` **[number][85]** The statusCode of the response
-- `body` **[Object][80]** The json object body of the response
+- `statusCode` **[number][92]** The statusCode of the response
+- `body` **[Object][87]** The json object body of the response
 
 ## multiStatusCodeJsonSerializer
 
@@ -576,10 +626,10 @@ A serializer for handling statusCode and json object body responses
 
 ### Parameters
 
-- `response` **[MultiStatusJsonResponse][100]** The result from processor
-- `ctx` **[AppContext][89]** The context of the current execution
+- `response` **[MultiStatusJsonResponse][108]** The result from processor
+- `ctx` **[AppContext][97]** The context of the current execution
 
-Returns **[Object][80]** Api gateway compatible response with statusCode, body, and headers set
+Returns **[Object][87]** Api gateway compatible response with statusCode, body, and headers set
 appropriately
 
 ## createDefaultWrapper
@@ -588,11 +638,11 @@ A wrapper that handles top level logging/parsing/serialization orchestration
 
 ### Parameters
 
-- `ctx` **[object][80]** Internal use
+- `ctx` **[object][87]** Internal use
 - `parser` (optional, default `event=>event`)
 - `serializer` (optional, default `data=>data`)
 
-Returns **[wrapper][92]** The wrapped processor
+Returns **[wrapper][100]** The wrapped processor
 
 ## createApiJsonWrapper
 
@@ -601,11 +651,11 @@ the process needs to be in the form: { statusCode: [number], data: [JSON seriali
 
 ### Parameters
 
-- `ctx` **[object][80]** Internal use
+- `ctx` **[object][87]** Internal use
 - `parser` (optional, default `event=>event`)
 - `serializer` (optional, default `multiStatusCodeJsonSerializer`)
 
-Returns **[wrapper][92]** The wrapped processor
+Returns **[wrapper][100]** The wrapped processor
 
 ## readJson
 
@@ -615,7 +665,7 @@ A method read a file from disk and parse it as JSON
 
 - `args` **...any** The path as it would be provided to path.resolve
 
-Returns **[Object][80]** The file contents parsed as JSON
+Returns **[Object][87]** The file contents parsed as JSON
 
 ## LOGGER_REDACTION_LISTS
 
@@ -651,73 +701,81 @@ A collection of logger redactions for common sensitive property paths.
 [28]: #parameters-12
 [29]: #publishjson
 [30]: #parameters-13
-[31]: #appcontext
+[31]: #snssendmessageresponse
 [32]: #parameters-14
 [33]: #properties-2
-[34]: #eventtype
-[35]: #properties-3
-[36]: #parser
-[37]: #parameters-15
-[38]: #processor
-[39]: #parameters-16
-[40]: #serializer
-[41]: #parameters-17
-[42]: #wrapper
-[43]: #parameters-18
-[44]: #createcontainer
-[45]: #parameters-19
-[46]: #createprocessor
-[47]: #parameters-20
-[48]: #createcache
-[49]: #createwrapper
+[34]: #snsclient
+[35]: #parameters-15
+[36]: #publishjson-1
+[37]: #parameters-16
+[38]: #appcontext
+[39]: #parameters-17
+[40]: #properties-3
+[41]: #eventtype
+[42]: #properties-4
+[43]: #parser
+[44]: #parameters-18
+[45]: #processor
+[46]: #parameters-19
+[47]: #serializer
+[48]: #parameters-20
+[49]: #wrapper
 [50]: #parameters-21
-[51]: #lambdahandler
+[51]: #createcontainer
 [52]: #parameters-22
-[53]: #createhandler
+[53]: #createprocessor
 [54]: #parameters-23
-[55]: #createjsonhandler
-[56]: #parameters-24
-[57]: #createapijsonhandler
-[58]: #parameters-25
-[59]: #parsejsonhttpevent
-[60]: #parameters-26
-[61]: #httpevent
-[62]: #parameters-27
-[63]: #properties-4
-[64]: #parsejsonmonosqsevent
+[55]: #createcache
+[56]: #createwrapper
+[57]: #parameters-24
+[58]: #lambdahandler
+[59]: #parameters-25
+[60]: #createhandler
+[61]: #parameters-26
+[62]: #createjsonhandler
+[63]: #parameters-27
+[64]: #createapijsonhandler
 [65]: #parameters-28
-[66]: #sqsevent
+[66]: #parsejsonhttpevent
 [67]: #parameters-29
-[68]: #properties-5
-[69]: #multistatusjsonresponse
-[70]: #parameters-30
-[71]: #multistatuscodejsonserializer
+[68]: #httpevent
+[69]: #parameters-30
+[70]: #properties-5
+[71]: #parsejsonmonosqsevent
 [72]: #parameters-31
-[73]: #createdefaultwrapper
+[73]: #sqsevent
 [74]: #parameters-32
-[75]: #createapijsonwrapper
-[76]: #parameters-33
-[77]: #readjson
-[78]: #parameters-34
-[79]: #logger_redaction_lists
-[80]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-[81]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-[82]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
-[83]: #eventbridgereponseentry
-[84]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
-[85]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-[86]: #sqssendmessageresponse
-[87]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-[88]: #processor
-[89]: #appcontext
-[90]: #parser
-[91]: #serializer
-[92]: #wrapper
-[93]: #createcontainer
-[94]: #createcache
-[95]: #createwrapper
-[96]: #createprocessor
-[97]: #lambdahandler
-[98]: #httpevent
-[99]: #sqsevent
-[100]: #multistatusjsonresponse
+[75]: #properties-6
+[76]: #multistatusjsonresponse
+[77]: #parameters-33
+[78]: #multistatuscodejsonserializer
+[79]: #parameters-34
+[80]: #createdefaultwrapper
+[81]: #parameters-35
+[82]: #createapijsonwrapper
+[83]: #parameters-36
+[84]: #readjson
+[85]: #parameters-37
+[86]: #logger_redaction_lists
+[87]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[88]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[89]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[90]: #eventbridgereponseentry
+[91]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[92]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[93]: #sqssendmessageresponse
+[94]: #snssendmessageresponse
+[95]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[96]: #processor
+[97]: #appcontext
+[98]: #parser
+[99]: #serializer
+[100]: #wrapper
+[101]: #createcontainer
+[102]: #createcache
+[103]: #createwrapper
+[104]: #createprocessor
+[105]: #lambdahandler
+[106]: #httpevent
+[107]: #sqsevent
+[108]: #multistatusjsonresponse
