@@ -114,3 +114,17 @@ test('should provide empty object body if method is GET', async (t) => {
 
   t.snapshot(result, 'GET Event with empty object body')
 })
+
+test('should successfully parse a base64 encoded body', async (t) => {
+  const event = await getJsonFixture('http-event.json')
+
+  const updatedEvent = {
+    ...event,
+    body: Buffer.from(event.body).toString('base64'),
+    isBase64Encoded: true
+  }
+
+  const result = parseJsonHttpEvent(updatedEvent)
+
+  t.snapshot(result, 'Base4 encoded body Event')
+})
