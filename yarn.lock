@@ -1394,13 +1394,13 @@
   resolved "https://registry.yarnpkg.com/@kwsites/promise-deferred/-/promise-deferred-1.1.1.tgz#8ace5259254426ccef57f3175bc64ed7095ed919"
   integrity sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==
 
-"@meltwater/aws-configuration-fetcher@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@meltwater/aws-configuration-fetcher/-/aws-configuration-fetcher-1.1.0.tgz#5161b2995d66600d38c1f75143244511750cdb99"
-  integrity sha512-exZl1wofvnUzbzWZgG1pJlrRFRzxnzsIUt7b/HXPHAqyqfBiQZ62C+OqNTuRM8wLImQ8kOd7Vca8blw1HWZH4w==
+"@meltwater/aws-configuration-fetcher@1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@meltwater/aws-configuration-fetcher/-/aws-configuration-fetcher-1.1.4.tgz#cb077ea2b6db69f3e75f551d4cda8aca16a0a7dc"
+  integrity sha512-Om9pD+Alv5JVUM/LyEJjEa7Yp0IlvSbFR3ZsNN2W174rhS8ODitKsIihbSJAet85AuPYfaoF4zl2OLqa45xSJw==
   dependencies:
     argument-contracts "^1.1.0"
-    aws-xray-sdk-core "^3.2.0"
+    aws-xray-sdk-core "3.2.0"
     cache-manager "^3.4.0"
     esm "^3.2.25"
 
@@ -2496,7 +2496,7 @@ aws-sign2@~0.7.0:
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
   integrity sha1-tG6JCTSpWR8tL2+G1+ap8bP+dqg=
 
-aws-xray-sdk-core@3.2.0, aws-xray-sdk-core@^3.2.0:
+aws-xray-sdk-core@3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/aws-xray-sdk-core/-/aws-xray-sdk-core-3.2.0.tgz#45421ec5f11824e4fcac9cdc868eb2421af9df45"
   integrity sha512-6mhqmRsQbDAISyKQuYguO38AhHgGSZsmYLVUYWUV9eJ+GiHZf08apwM7fSdiRw56qCulgSTV5JG2/cnPmtBhUA==
