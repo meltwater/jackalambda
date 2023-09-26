@@ -61,7 +61,7 @@
     "@meltwater/aws-configuration-fetcher": "^1.1.0",
     "@meltwater/mlabs-logger": "^6.0.0",
     "argument-contracts": "^1.1.0",
-    "aws-xray-sdk": "^3.2.0",
+    "aws-xray-sdk": "^3.5.2",
     "cache-manager": "^3.4.0",
     "cookie": "^0.4.1",
     "esm": "^3.2.25",
