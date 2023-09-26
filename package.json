@@ -1,6 +1,6 @@
 {
   "name": "@meltwater/jackalambda",
-  "version": "1.13.5",
+  "version": "1.13.6",
   "description": "Mythical lambda creature",
   "main": "index.js",
   "module": "lib/index.js",
