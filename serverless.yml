@@ -1,14 +1,13 @@
 ---
 service: jackalambda
 
-frameworkVersion: "^2.0.0"
+frameworkVersion: "3.0.1"
 
 plugins:
   - serverless-offline
 
 provider:
   name: aws
-  runtime: nodejs12.x
   region: ${env:AWS_DEFAULT_REGION, 'eu-west-1'}
   stage: ${opt:stage, env:SERVERLESS_STAGE, 'staging'}
   logRetentionInDays: 30

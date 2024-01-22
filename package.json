@@ -52,7 +52,7 @@
     "report": "nyc report"
   },
   "engines": {
-    "node": ">=12.13.0"
+    "node": ">=16.20.2"
   },
   "resolutions": {
     "aws-sdk": "2.771.0"
@@ -84,7 +84,7 @@
     "npm-run-all": "^4.1.2",
     "nyc": "^15.0.0",
     "prettier": "^2.0.2",
-    "serverless": "^2.1.1",
+    "serverless": "3.0.1",
     "serverless-offline": "^6.1.2",
     "testdouble": "^3.16.1"
   }
