@@ -8,7 +8,7 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   region: ${env:AWS_DEFAULT_REGION, 'eu-west-1'}
   stage: ${opt:stage, env:SERVERLESS_STAGE, 'staging'}
   logRetentionInDays: 30
