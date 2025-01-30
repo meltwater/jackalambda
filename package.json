@@ -1,6 +1,6 @@
 {
   "name": "@meltwater/jackalambda",
-  "version": "2.0.4",
+  "version": "2.0.2",
   "description": "Mythical lambda creature",
   "main": "index.js",
   "module": "lib/index.js",
@@ -50,7 +50,12 @@
     "pretty": "prettier --ignore-path .gitignore --write '**/*.(js|json|graphql|md)'",
     "format": "npm-run-all --serial pretty format:*",
     "format:ts": "eslint --ignore-path .gitignore --fix --ext .js .",
-    "report": "nyc report"
+    "report": "nyc report",
+    "patch": "standard-version --release-as patch --skip.changelog && git push && git push --tags",
+    "preminor": "npm-run-all --serial test build",
+    "minor": "standard-version --release-as minor --skip.changelog && git push && git push --tags",
+    "premajor": "npm-run-all --serial test build",
+    "major": "standard-version --release-as major --skip.changelog && git push && git push --tags"
   },
   "engines": {
     "node": ">=12.13.0"
@@ -87,6 +92,7 @@
     "prettier": "^2.0.2",
     "serverless": "^2.1.1",
     "serverless-offline": "^6.1.2",
+    "standard-version": "^9.5.0",
     "testdouble": "^3.16.1"
   }
 }
