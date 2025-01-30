@@ -1,0 +1,118 @@
+name: Deployment Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag to release'
+        required: true
+      environment:
+        description: 'Environment to release to'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    environment: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment || 'staging' }}
+
+    steps:
+      - name: Set Version and Deployment Environment
+        id: determine-vars
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            if [[ "${{ github.event.inputs.version }}" == v* ]]; then
+              echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_ENV
+            else
+              echo "VERSION=v${{ github.event.inputs.version }}" >> $GITHUB_ENV
+            fi
+            echo "ENVIRONMENT=${{ github.event.inputs.environment }}" >> $GITHUB_ENV
+          else
+            echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+            echo "ENVIRONMENT=staging" >> $GITHUB_ENV
+          fi
+      - name: Print Deployment Info
+        run: |
+          echo "*****************************************"
+          echo "** DEPLOYING VERSION: ${{ env.VERSION }}"
+          echo "** TO ENVIRONMENT: ${{ env.ENVIRONMENT }}"
+          echo "*****************************************"
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ env.VERSION }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/fermium
+
+      - name: Prepare npm token
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+
+      - name: Print Inputs
+        run: |
+          echo "Version: ${{ env.VERSION }}"
+          echo "Environment: ${{ env.ENVIRONMENT }}"
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --non-interactive --ignore-engines
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Publish to NPM
+        run: |
+          yarn run build
+          .github/workflows/publish.sh
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ASSUME_ROLE_ARN }}
+          aws-region: eu-west-1
+
+      - name: Deploy to AWS
+        env:
+          AWS_REGION: eu-west-1
+        run: |
+          if [ "${{ env.ENVIRONMENT }}" == "production" ]; then
+            echo "Deploying to production..."
+            yarn serverless deploy --aws-s3-accelerate --stage production
+          else
+            echo "Deploying to staging..."
+            yarn serverless deploy --aws-s3-accelerate --stage staging
+          fi
+      - name: Slack notification
+        uses: slackapi/slack-github-action@v1.27.0
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          payload: |
+            {
+              "channel": "jackalope-deployment",
+              "username": "GithubActions: ${{ github.repository }}",
+              "icon_emoji": ":github-actions:",
+              "text": "<https://github.com/${{ github.repository }}/tree/${{ github.ref_name }} | ${{ github.ref_name }}> has been deployed to `${{ env.ENVIRONMENT }}` by *${{ github.actor }}* "
+            }
