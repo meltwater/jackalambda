@@ -35,7 +35,6 @@
     "test:inspect": "node --inspect node_modules/ava/profile",
     "test:inspect:watch": "nodemon --inspect node_modules/ava/profile",
     "lint": "eslint --ignore-path .gitignore --ext .js .",
-    "preversion": "npm-run-all docs test",
     "postversion": "git push && git push --tags",
     "deploy": "serverless deploy --aws-s3-accelerate",
     "release:staging": ".github/workflows/deploy-version.sh --environment staging --version",
