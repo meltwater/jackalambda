@@ -67,7 +67,7 @@
     "@meltwater/aws-configuration-fetcher": "1.1.5",
     "@meltwater/mlabs-logger": "^6.0.0",
     "argument-contracts": "^1.1.0",
-    "aws-xray-sdk": "3.4.0",
+    "aws-xray-sdk": "3.3.8",
     "cache-manager": "^3.4.0",
     "cookie": "^0.4.1",
     "esm": "^3.2.25",
@@ -76,7 +76,7 @@
   "devDependencies": {
     "@meltwater/examplr": "^5.0.0",
     "ava": "^3.3.0",
-    "aws-sdk": "2.771.0",
+    "aws-sdk": "2.1231.0",
     "del-cli": "^3.0.0",
     "documentation": "^13.0.2",
     "eslint": "^7.4.0",
