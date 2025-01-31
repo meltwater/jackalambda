@@ -1855,48 +1855,48 @@ aws-xray-sdk-core@3.2.0:
     pkginfo "^0.4.0"
     semver "^5.3.0"
 
-aws-xray-sdk-core@3.5.2:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/aws-xray-sdk-core/-/aws-xray-sdk-core-3.5.2.tgz#c0e992662774de450eed72874cb0db31a8054ee7"
-  integrity sha512-sboSTXIS0tOKYqQ5zrWX6p6k4Mrec84BNeJPHnRakcjzgsU5j8xBB5kim3BVVv+pINGLVpOD568cJzH0GI/HqQ==
+aws-xray-sdk-core@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/aws-xray-sdk-core/-/aws-xray-sdk-core-3.4.0.tgz#2ed466e8e3b4222f6d13bb22666936166d61e6e7"
+  integrity sha512-PH3jqjUp8fTIaRa0i6fjJxXJSR9yDwldH1Qw7nMDNAouL7txsrSM6BhrQEjcaZ2mwfU0PNx8tsFQ+2/nfNdR1w==
   dependencies:
     "@aws-sdk/service-error-classification" "^3.4.1"
     "@aws-sdk/types" "^3.4.1"
     "@types/cls-hooked" "^4.3.3"
     atomic-batcher "^1.0.2"
     cls-hooked "^4.2.2"
-    semver "^7.5.3"
+    semver "^5.3.0"
 
-aws-xray-sdk-express@3.5.2:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/aws-xray-sdk-express/-/aws-xray-sdk-express-3.5.2.tgz#a9db6873171c56f771825c5168d4cecfb0cba615"
-  integrity sha512-earXjt6wG5b47eEqRSs3/vzpFSsGZIBZ/0SX+Ik2fEULwCZOPnpoiXLVe62A5HBr0j82otrwlvyi8mIWuJkXGw==
+aws-xray-sdk-express@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/aws-xray-sdk-express/-/aws-xray-sdk-express-3.4.0.tgz#04b9baf2288c79401bbcc6d4393e3157d453ab43"
+  integrity sha512-H+hjSScPq9AGoqMhrxTnJSQ6EpQgC3y1PA8ZlTqoDUK+l/NNAeB2zprSzRGuCxZwPITVajSDjznNwhOxjp/tww==
   dependencies:
     "@types/express" "*"
 
-aws-xray-sdk-mysql@3.5.2:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/aws-xray-sdk-mysql/-/aws-xray-sdk-mysql-3.5.2.tgz#bf1c7b083519f1039cf660a39e00b4353b1f11c6"
-  integrity sha512-obcBdXt3IVoyj9DDJabgUSHY24aorDisYn4OPr5ZAw4wmCD2NWZQKTzWTB0xcyebz/tQcX6lks/IYRXqtOAlTw==
+aws-xray-sdk-mysql@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/aws-xray-sdk-mysql/-/aws-xray-sdk-mysql-3.4.0.tgz#3d205bca23488d56a1a50f8ad923489b26116303"
+  integrity sha512-2kWkPzgNhgXH0ymNLXyssyGxWQ+DJyeKXDSYOVvt8EeHmk7qs17kY61sFfaWOhr20Cn0emZqA9AIJxaDfCUq/Q==
   dependencies:
     "@types/mysql" "*"
 
-aws-xray-sdk-postgres@3.5.2:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/aws-xray-sdk-postgres/-/aws-xray-sdk-postgres-3.5.2.tgz#f507a8e9ffc083740668b4df09cc5dd0161ecb50"
-  integrity sha512-uM4yKp7cSIBuQJYlTwrqOQNatPMMs8APqqeSKagHl8Eb3aMLoMOZ9Ftv1pVKpczR+p/AzlDeKVGuec7ZFHBgNQ==
+aws-xray-sdk-postgres@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/aws-xray-sdk-postgres/-/aws-xray-sdk-postgres-3.4.0.tgz#fd64c52e1981a0d563170fe4175deb31ad7b70a7"
+  integrity sha512-TSf/76dEZgCRTPY9QOzyUg63RAUtxwC6tLU4R9ks6J6ZdmNz+XDHp7Ew5zCrsevZRHRVntm4M8nlBwwnbAnyYw==
   dependencies:
     "@types/pg" "*"
 
-aws-xray-sdk@3.5.2:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/aws-xray-sdk/-/aws-xray-sdk-3.5.2.tgz#8b80c32f6a53b35cb2a4a302b04c2f889520fe4b"
-  integrity sha512-nDEFFSRoHKXXJmaRERwZ14r0LAv11XpLW1vXD2MuR6FATCpzpRzVTSn1JnG50vcfz3Ew8pPYDUWkiQPeKOtb4g==
+aws-xray-sdk@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/aws-xray-sdk/-/aws-xray-sdk-3.4.0.tgz#d07f6e0b2d5ad1c85b2b5bb99afce68192d116ca"
+  integrity sha512-hvEoatqrbbdF6GVTR3qCus3eG9Gt0wOMtiPoId6HMopKIFFs0t5t/DfKNsjsjTXy6DxcPRhVT7+ZHRdQpKrDjA==
   dependencies:
-    aws-xray-sdk-core "3.5.2"
-    aws-xray-sdk-express "3.5.2"
-    aws-xray-sdk-mysql "3.5.2"
-    aws-xray-sdk-postgres "3.5.2"
+    aws-xray-sdk-core "3.4.0"
+    aws-xray-sdk-express "3.4.0"
+    aws-xray-sdk-mysql "3.4.0"
+    aws-xray-sdk-postgres "3.4.0"
 
 axios@^0.21.1:
   version "0.21.4"
@@ -8699,13 +8699,6 @@ semver@^7.1.1, semver@^7.2.1, semver@^7.3.2, semver@^7.3.4, semver@^7.3.5, semve
   version "7.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.5.0.tgz#ed8c5dc8efb6c629c88b23d41dc9bf40c1d96cd0"
   integrity sha512-+XC0AD/R7Q2mPSRuy2Id0+CGTZ98+8f+KvwirxOKIEyid+XSx6HbC63p+O4IndTHuX5Z+JxQ0TghCkO5Cg/2HA==
-  dependencies:
-    lru-cache "^6.0.0"
-
-semver@^7.5.3:
-  version "7.5.4"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.5.4.tgz#483986ec4ed38e1c6c48c34894a9182dbff68a6e"
-  integrity sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==
   dependencies:
     lru-cache "^6.0.0"
 
